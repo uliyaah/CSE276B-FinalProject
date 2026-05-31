@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'lab2task5'
+package_name = 'final_project_input_detection'
 
 setup(
     name=package_name,
@@ -13,15 +13,15 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='ssmyers',
-    maintainer_email='ssmyers@ucsd.edu',
-    description='Lab 2 Task 5: Robot moves based on touch and displays related image',
+    maintainer='atn046',
+    maintainer_email='atn046@ucsd.edu',
+    description='Final Project: Camera and Touch Input Detection',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'service = lab2task5.service_go_pupper:main',
-            'client = lab2task5.client_go_pupper:main',
+            'service = final_project_input_detection.service_go_pupper:main',
+            'client = final_project_input_detection.client_go_pupper:main',
         ],
     },
 )
