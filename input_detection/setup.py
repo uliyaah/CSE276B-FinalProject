@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'service = final_project_input_detection.service_go_pupper:main',
-            'client = final_project_input_detection.client_go_pupper:main',
+            'service = final_project_input_detection.service_touch:main',
+            'client = final_project_input_detection.client_touch:main',
         ],
     },
 )
