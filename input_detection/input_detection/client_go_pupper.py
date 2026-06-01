@@ -2,7 +2,7 @@
 # Name: client_go_pupper.py
 #
 # Purpose: Go Pupper Client. Sample client code which will communicate with the GoPupper service by
-#          passing touch input from the user as a string, additionally updating the image to reflect move direction
+#          passing touch input from the user as a string and touch duration, additionally updating the image to reflect move direction
 #
 # Usage: First launch the service (see lab/file). Then you can run the client like this:
 #        ros2 run lab2task5 client
@@ -68,10 +68,11 @@ class MinimalClientAsync(Node):
     # Purpose: send_move_request method, send request and spin until receive response or fail
     # Arguments:  self (reference the current class), move_command (the command we plan to send to the server)
     #####
-    def send_move_request(self, move_command):
+    def send_move_request(self, move_command, duration):
         self.req = GoPupper.Request()
         self.req.command = move_command
-        print("In send_move_request, command is: %s" % self.req.command)
+        self.req.duration = duration
+        print("In send_move_request, command is: %s, duration: %.3f" % (self.req.command, self.req.duration))
         self.future = self.cli.call_async(self.req)  # send the command to the server
         rclpy.spin_until_future_complete(self, self.future)
         return self.future.result()
@@ -161,18 +162,25 @@ def change_display(move_command):
 
 ###
 # Name: Main
-# Purpose: "Within a loop, constructs a MinimalClientAsync object, checks for touch input, and sends the move command to the server while changing display image to reflect the command, checking for a response."
+# Purpose: "Within a loop, constructs a MinimalClientAsync object, checks for touch input, and sends the move command with its duration to the server while changing display image to reflect the command, checking for a response."
 # Arguments: N/A
 #####
 def main(args=None):
     rclpy.init(args=args)
+    last_time = time.time()
+    duration = 0.0
+    last_command = 'stay'
     while True:
         minimal_client = MinimalClientAsync()
         move_command = check_touch_input()
+        if last_command != move_command:
+            last_time = time.time() # reset the timer if the command changes
+        current_time = time.time() 
+        duration = current_time - last_time # calculate how long we've been in the current command state
         # Call send move request (which sends cmd to server)
         change_display(move_command)
-        minimal_client.send_move_request(move_command)
-    
+        minimal_client.send_move_request(move_command, duration)
+        last_command = move_command
         while rclpy.ok():
             # This spins up a client node, checks if it's done, throws an exception of there's an issue
             # (Probably a bit redundant with other code and can be simplified. But right now it works, so ¯\_(ツ)_/¯)

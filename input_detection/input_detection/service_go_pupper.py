@@ -64,44 +64,37 @@ class MinimalService(Node):
     # Arguments: self, the request (e.g., the command from client), the response (e.g., success)
     #####
     def pup_callback(self, request, response):
-        # We'll be publishing a velocity message. Calling the Twist constructor zeroes it out.  
         velocity_cmd = Twist()
-
-        ## Debug - if you're curious what message this method got, uncomment this out
-        #print("In server pup_callback, got this command: %s" % request.command)
-
-        ## Here is a set of conditionals - move forward, move_backward, etc, and they send their
-        # respective linear velocity commands accordingly. See Lab 0 / Lab 1 to learn more about this. 
         if (request.command == 'move_front'):
             velocity_cmd.linear.x = 0.5    # .5 in the linear X direction moves us forward
             self.vel_publisher_.publish(velocity_cmd)   # publish the command
-            self.get_logger().info('Publishing: "%s"' % request.command)  # Log what happened
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))  # Log what happened
             time.sleep(self.interval)  # Wait and make sure the robot moved
 
         elif (request.command == 'move_left'):
             velocity_cmd.linear.y = 0.5
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s"' % request.command)
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
             time.sleep(self.interval)   
 
         elif (request.command == 'move_right'):
             velocity_cmd.linear.y = -0.5
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s"' % request.command)
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
             time.sleep(self.interval)   
 
         elif (request.command == 'move_front_right'):
             velocity_cmd.linear.y = -0.5 # -0.5 in the linear direction y moves right
             velocity_cmd.linear.x = 0.5 # 0.5 in the linear direction x moves front
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s"' % request.command)
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
             time.sleep(self.interval)
 
         elif(request.command == 'move_front_left'):
             velocity_cmd.linear.y = 0.5 # 0.5 in the linear direction y moves left
             velocity_cmd.linear.x = 0.5 # 0.5 in the linear direction x moves front
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s"' % request.command)
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
             time.sleep(self.interval)
 
         elif (request.command == 'stay'):
@@ -111,18 +104,16 @@ class MinimalService(Node):
             self.get_logger().info('Invalid command: "%s"' % request.command)
             time.sleep(self.interval)  # do nothing
 
-        # Stop the robot from moving (set everyting to zero by calling the Twist constructor)
+        # Stop the robot from moving (set everything to zero by calling the Twist constructor)
         velocity_cmd = Twist()
         self.vel_publisher_.publish(velocity_cmd)
 
-        # Give a response. (Probably we should set this to false if the command was invalid per above logic,
-        # but this is just demo code to give you an idea).  
         response.executed = True
         return response
 
 ####
 # Name: Main
-# Purpose: Main functoin to set up our service
+# Purpose: Main function to set up our service
 #####
 def main():
     # Initialize the python client library in ROS 2
