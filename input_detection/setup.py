@@ -20,8 +20,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'service = final_project_input_detection.service_touch:main',
-            'client = final_project_input_detection.client_touch:main',
+            'service_touch = final_project_input_detection.service_touch:main',
+            'client_touch = final_project_input_detection.client_touch:main',
+            'service_camera = final_project_input_detection.service_camera:main',
+            'client_camera = final_project_input_detection.client_camera:main',
         ],
     },
 )

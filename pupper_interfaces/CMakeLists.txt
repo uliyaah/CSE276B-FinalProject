@@ -18,7 +18,8 @@ find_package(std_msgs REQUIRED)        # general message passing
 # Can add additional .msg or .srv types here. We just need these two for GoPupper.
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Command.msg"
-  "srv/GoPupper.srv"
+  "srv/TouchPupper.srv"
+  "srv/CameraPupper.srv"
   DEPENDENCIES std_msgs geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
 
