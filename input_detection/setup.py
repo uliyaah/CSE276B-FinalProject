@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'final_project_input_detection'
+package_name = 'input_detection'
 
 setup(
     name=package_name,
@@ -13,17 +13,17 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='atn046',
+    maintainer='ubuntu',
     maintainer_email='atn046@ucsd.edu',
-    description='Final Project: Camera and Touch Input Detection',
-    license='Apache-2.0',
+    description='TODO: Package description',
+    license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'service_touch = final_project_input_detection.service_touch:main',
-            'client_touch = final_project_input_detection.client_touch:main',
-            'service_camera = final_project_input_detection.service_camera:main',
-            'client_camera = final_project_input_detection.client_camera:main',
+            'service_touch = input_detection.service_touch:main',
+            'client_touch = input_detection.client_touch:main',
+            'service_camera = input_detection.service_camera:main',
+            'client_camera = input_detection.client_camera:main',
         ],
     },
 )

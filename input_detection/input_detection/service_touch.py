@@ -3,7 +3,7 @@
 #
 # Purpose: Go Pupper Service. Code which will send movement commands from client to pupper.
 #
-# Usage: After conpling and sourcing the ~/ros2_ws/install/setup.bash , launch the service like this:
+# Usage: After compiling and sourcing the ~/ros2_ws/install/setup.bash , launch the service like this:
 #         ros2 run lab2task4 service
 #        (See client code for how to use)
 #
@@ -20,8 +20,8 @@
 #
 ########
 
-# Import the ROS2 interface we wrote, called GoPupper. This specifies the message type.
-from pupper_interfaces.srv import GoPupper
+# Import the ROS2 interface we wrote, called TouchPupper. This specifies the message type.
+from pupper_interfaces.srv import TouchPupper
 
 # packages to let us create nodes and spin them up
 import rclpy
@@ -48,8 +48,8 @@ class MinimalService(Node):
         # Initialize the node 
         super().__init__('minimal_service')
 
-        # Create the service, defining its type (GoPupper), name (pup_command), and callback.
-        self.srv = self.create_service(GoPupper, 'pup_command', self.pup_callback)
+        # Create the service, defining its type (TouchPupper), name (pup_command), and callback.
+        self.srv = self.create_service(TouchPupper, 'pup_command', self.pup_callback)
         
         # publish twist 
         self.vel_publisher_ = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -68,33 +68,33 @@ class MinimalService(Node):
         if (request.command == 'move_front'):
             velocity_cmd.linear.x = 0.5    # .5 in the linear X direction moves us forward
             self.vel_publisher_.publish(velocity_cmd)   # publish the command
-            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))  # Log what happened
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, request.duration))  # Log what happened
             time.sleep(self.interval)  # Wait and make sure the robot moved
 
         elif (request.command == 'move_left'):
             velocity_cmd.linear.y = 0.5
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, request.duration))
             time.sleep(self.interval)   
 
         elif (request.command == 'move_right'):
             velocity_cmd.linear.y = -0.5
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, request.duration))
             time.sleep(self.interval)   
 
         elif (request.command == 'move_front_right'):
             velocity_cmd.linear.y = -0.5 # -0.5 in the linear direction y moves right
             velocity_cmd.linear.x = 0.5 # 0.5 in the linear direction x moves front
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, request.duration))
             time.sleep(self.interval)
 
         elif(request.command == 'move_front_left'):
             velocity_cmd.linear.y = 0.5 # 0.5 in the linear direction y moves left
             velocity_cmd.linear.x = 0.5 # 0.5 in the linear direction x moves front
             self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, self.interval))
+            self.get_logger().info('Publishing: "%s" with duration %.3f seconds' % (request.command, request.duration))
             time.sleep(self.interval)
 
         elif (request.command == 'stay'):
