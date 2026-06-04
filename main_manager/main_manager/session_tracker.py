@@ -39,7 +39,6 @@ class SessionTracker:
             "start_time": datetime.now().isoformat(),
             "distraction_count": 0,
             "distraction_events": [],
-            "proximity_events": [],
             "touch_events": []
         }
 
@@ -61,22 +60,6 @@ class SessionTracker:
             "severity": severity
         }
         self.session_data["distraction_events"].append(event_entry)
-        self._save()
-
-    def log_proximity(self, distance: float, user_in_range: bool):
-        """
-        Log a proximity event.
-        
-        Args:
-            distance: Distance in meters
-            user_in_range: True if distance < 0.5m, False otherwise
-        """
-        event_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "distance": distance,
-            "user_in_range": user_in_range
-        }
-        self.session_data["proximity_events"].append(event_entry)
         self._save()
 
     def log_touch(self, location: str):
@@ -113,7 +96,6 @@ class SessionTracker:
         """Reset session data (for testing)."""
         self.session_data["distraction_count"] = 0
         self.session_data["distraction_events"] = []
-        self.session_data["proximity_events"] = []
         self.session_data["touch_events"] = []
         self._save()
 
@@ -122,7 +104,6 @@ if __name__ == '__main__':
     # Simple test
     tracker = SessionTracker("test_session")
     tracker.log_distraction(12.5, "high")
-    tracker.log_proximity(0.3, True)
     tracker.log_touch("front")
     print(f"Session file: {tracker.session_file}")
     print(f"Data: {tracker.get_session_data()}")
