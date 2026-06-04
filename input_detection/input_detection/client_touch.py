@@ -1,7 +1,7 @@
 ########
-# Name: client_go_pupper.py
+# Name: client_touch.py
 #
-# Purpose: Go Pupper Client. Sample client code which will communicate with the GoPupper service by
+# Purpose: Touch Pupper Client. Sample client code which will communicate with the TouchPupper service by
 #          passing touch input from the user as a string and touch duration, additionally updating the image to reflect move direction
 #
 # Usage: First launch the service (see lab/file). Then you can run the client like this:
@@ -16,8 +16,8 @@
 ########
 
 
-# Import the ROS2 interface we wrote, called GoPupper. This specifies the message type.
-from pupper_interfaces.srv import GoPupper
+# Import the ROS2 interface we wrote, called TouchPupper. This specifies the message type.
+from pupper_interfaces.srv import TouchPupper
 
 # Lets us read arguments from the command line as needed
 import sys
@@ -52,7 +52,7 @@ class MinimalClientAsync(Node):
     def __init__(self):
         super().__init__('minimal_client_async')
         #super().__init__('client_go_pupper')
-        self.cli = self.create_client(GoPupper, 'pup_command')
+        self.cli = self.create_client(TouchPupper, 'pup_command')
 
 
         # "The while loop in the constructor checks if a service matching the type and name of the client 
@@ -61,7 +61,7 @@ class MinimalClientAsync(Node):
             self.get_logger().info('service not available, waiting again...')
 
         # "Finally it creates a new request object.""
-        self.req = GoPupper.Request()
+        self.req = TouchPupper.Request()
 
     ###
     # Name: send_move_request
@@ -69,7 +69,7 @@ class MinimalClientAsync(Node):
     # Arguments:  self (reference the current class), move_command (the command we plan to send to the server)
     #####
     def send_move_request(self, move_command, duration):
-        self.req = GoPupper.Request()
+        self.req = TouchPupper.Request()
         self.req.command = move_command
         self.req.duration = duration
         print("In send_move_request, command is: %s, duration: %.3f" % (self.req.command, self.req.duration))

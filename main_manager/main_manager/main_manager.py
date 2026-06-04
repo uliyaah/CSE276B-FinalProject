@@ -11,7 +11,6 @@
 
 import rclpy
 from rclpy.node import Node
-from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from std_msgs.msg import String
 
 from pupper_interfaces.msg import (
@@ -41,31 +40,26 @@ class MainManager(Node):
         # Initialize session tracker
         self.session_tracker = SessionTracker()
 
-        self.subscriber_group = MutuallyExclusiveCallbackGroup()
-
         # Create subscribers for the three event types
         self.distraction_sub = self.create_subscription(
             DistractionEvent,
             'distraction_event',
             self.distraction_callback,
-            10,
-            callback_group=self.subscriber_group
+            10
         )
 
         self.proximity_sub = self.create_subscription(
             ProximityEvent,
             'proximity_event',
             self.proximity_callback,
-            10,
-            callback_group=self.subscriber_group
+            10
         )
 
         self.touch_sub = self.create_subscription(
             TouchEvent,
             'touch_event',
             self.touch_callback,
-            10,
-            callback_group=self.subscriber_group
+            10
         )
 
         # Subscribe to state manager state updates
