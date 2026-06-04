@@ -13,10 +13,18 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+import json
 
 from pupper_interfaces.srv import StateManagerCommand
 from pupper_interfaces.msg import Command
-from pupper_behaviors.behaviors import IdleBehavior, SentryBehavior
+from pupper_behaviors.behaviors import (
+    IdleBehavior,
+    SentryBehavior,
+    Intervention1Behavior,
+    Intervention2Behavior,
+    Intervention3Behavior,
+    PausedBehavior
+)
 
 
 class StateManager(Node):
@@ -51,6 +59,12 @@ class StateManager(Node):
         
         # Movement publisher (to Movement Manager)
         self.movement_publisher = self.create_publisher(String, 'movement/command', 10)
+        
+        # Display publisher (to Display Manager)
+        self.display_publisher = self.create_publisher(String, 'display/command', 10)
+        
+        # Speaker publisher (to Speaker Manager)
+        self.speaker_publisher = self.create_publisher(String, 'speaker/command', 10)
         
         # Service server for commands from Main Manager
         self.command_service = self.create_service(
@@ -189,8 +203,7 @@ class StateManager(Node):
     def emit_output_commands(self, state: str):
         """
         Emit commands to output managers based on new state.
-        Currently logs behavior commands. 
-        TODO: Route to actual output managers.
+        Publishes to movement, display, and speaker managers.
         """
         behavior_commands = None
         
@@ -199,14 +212,14 @@ class StateManager(Node):
             behavior_commands = IdleBehavior.get_all_commands()
         elif state == "SENTRY":
             behavior_commands = SentryBehavior.get_all_commands()
-        elif state in ["INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
-            # TODO: Implement behavior classes for intervention states
-            self.get_logger().info(f'[TODO] Behavior for {state} not yet implemented')
-            return
+        elif state == "INTERVENTION_1":
+            behavior_commands = Intervention1Behavior.get_all_commands()
+        elif state == "INTERVENTION_2":
+            behavior_commands = Intervention2Behavior.get_all_commands()
+        elif state == "INTERVENTION_3":
+            behavior_commands = Intervention3Behavior.get_all_commands()
         elif state == "PAUSED":
-            # TODO: Implement behavior for PAUSED state
-            self.get_logger().info(f'[TODO] Behavior for PAUSED not yet implemented')
-            return
+            behavior_commands = PausedBehavior.get_all_commands()
         
         if behavior_commands:
             self.get_logger().info(
@@ -215,10 +228,21 @@ class StateManager(Node):
                 f'  Display: {behavior_commands["display"]}\n'
                 f'  Speaker: {behavior_commands["speaker"]}'
             )
-            # TODO: Actually send to Movement, Display, Speaker managers
-            # self.send_to_movement_manager(behavior_commands["movement"])
-            # self.send_to_display_manager(behavior_commands["display"])
-            # self.send_to_speaker_manager(behavior_commands["speaker"])
+            
+            # Publish movement command
+            movement_msg = String()
+            movement_msg.data = json.dumps(behavior_commands["movement"])
+            self.movement_publisher.publish(movement_msg)
+            
+            # Publish display command
+            display_msg = String()
+            display_msg.data = json.dumps(behavior_commands["display"])
+            self.display_publisher.publish(display_msg)
+            
+            # Publish speaker command
+            speaker_msg = String()
+            speaker_msg.data = json.dumps(behavior_commands["speaker"])
+            self.speaker_publisher.publish(speaker_msg)
 
     def publish_state(self):
         """Publish current state so other nodes can stay in sync."""

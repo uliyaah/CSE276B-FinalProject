@@ -2,6 +2,20 @@
 Pupper Behaviors: Defines how the robot should act in different states.
 """
 
-from .behaviors import IdleBehavior, SentryBehavior
+from .behaviors import (
+    IdleBehavior,
+    SentryBehavior,
+    Intervention1Behavior,
+    Intervention2Behavior,
+    Intervention3Behavior,
+    PausedBehavior
+)
 
-__all__ = ['IdleBehavior', 'SentryBehavior']
+__all__ = [
+    'IdleBehavior',
+    'SentryBehavior',
+    'Intervention1Behavior',
+    'Intervention2Behavior',
+    'Intervention3Behavior',
+    'PausedBehavior'
+]

@@ -76,3 +76,85 @@ class SentryBehavior:
             "display": SentryBehavior.get_display_command(),
             "speaker": SentryBehavior.get_speaker_command()
         }
+
+class Intervention1Behavior:
+    """Behavior for INTERVENTION_1 state (responding to low distraction)."""
+    
+    #TODO
+
+
+
+class Intervention2Behavior:
+    """Behavior for INTERVENTION_2 state (responding to medium distraction)."""
+    
+    @staticmethod
+    def get_movement_command():
+        """Return movement command for INTERVENTION_2 state."""
+        return {
+            "action": "approach",
+            "speed": 0.5
+        }
+    
+    @staticmethod
+    def get_display_command():
+        """Return display command for INTERVENTION_2 state."""
+        return {
+            "face": "puppy_dog_eyes"
+        }
+    
+    @staticmethod
+    def get_speaker_command():
+        """Return speaker command for INTERVENTION_2 state."""
+        return {
+            "sound": "whine"
+        }
+    
+    @staticmethod
+    def get_all_commands():
+        """Return all output commands as a dict."""
+        return {
+            "movement": Intervention2Behavior.get_movement_command(),
+            "display": Intervention2Behavior.get_display_command(),
+            "speaker": Intervention2Behavior.get_speaker_command()
+        }
+
+
+class Intervention3Behavior:
+    """Behavior for INTERVENTION_3 state (responding to high distraction)."""
+    
+    #TODO
+
+
+class PausedBehavior:
+    """Behavior when robot is in PAUSED state (user paused)."""
+    
+    @staticmethod
+    def get_movement_command():
+        """Return movement command for PAUSED state."""
+        return {
+            "action": "stay",
+            "speed": 0
+        }
+    
+    @staticmethod
+    def get_display_command():
+        """Return display command for PAUSED state."""
+        return {
+            "face": "neutral"
+        }
+    
+    @staticmethod
+    def get_speaker_command():
+        """Return speaker command for PAUSED state."""
+        return {
+            "sound": "silent"
+        }
+    
+    @staticmethod
+    def get_all_commands():
+        """Return all output commands as a dict."""
+        return {
+            "movement": PausedBehavior.get_movement_command(),
+            "display": PausedBehavior.get_display_command(),
+            "speaker": PausedBehavior.get_speaker_command()
+        }
