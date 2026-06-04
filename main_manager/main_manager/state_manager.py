@@ -82,10 +82,9 @@ class StateManager(Node):
         - "distraction_medium"
         - "distraction_high"
         - "distraction_ended"
-        - "user_nearby"
-        - "user_away"
-        - "pause" (internal, for PAUSED state)
-        - "resume" (internal, to exit PAUSED)
+        
+        Note: Proximity detection (walk_towards, walk_away) is handled
+        by Main Manager publishing to movement/command topic directly.
         """
         try:
             # Touch event - always go to PAUSED
@@ -95,17 +94,6 @@ class StateManager(Node):
                 elif self.current_state == "IDLE":
                     self.transition_to("SENTRY")
                 # Else in PAUSED, ignore (user already paused)
-                return True
-            
-            # User away - return to IDLE
-            elif command == "user_away":
-                if self.current_state == "SENTRY":
-                    self.transition_to("IDLE")
-                return True
-            
-            # User nearby (no action needed, just log)
-            elif command == "user_nearby":
-                self.get_logger().info('User nearby')
                 return True
             
             # Distraction events

@@ -2,7 +2,7 @@
 # Name: main_manager.py
 #
 # Purpose: Main Manager node - Pure event router + session tracker.
-#          Receives Distraction Event, Proximity Event, Touch Event
+#          Receives Distraction Event and Touch Event
 #          Interprets them and forwards unified command to State Manager
 #          Tracks distraction count for the session
 #
@@ -15,7 +15,6 @@ from std_msgs.msg import String
 
 from pupper_interfaces.msg import (
     DistractionEvent,
-    ProximityEvent,
     TouchEvent,
     Command
 )
@@ -28,7 +27,7 @@ class MainManager(Node):
     """
     Main Manager node that routes events to State Manager.
     
-    - Subscribes to distraction_event, proximity_event, touch_event topics
+    - Subscribes to distraction_event, touch_event topics
     - Interprets events based on configurable rules
     - Calls state_manager_command service with unified command
     - Tracks session metrics (distraction count, etc.)
@@ -45,13 +44,6 @@ class MainManager(Node):
             DistractionEvent,
             'distraction_event',
             self.distraction_callback,
-            10
-        )
-
-        self.proximity_sub = self.create_subscription(
-            ProximityEvent,
-            'proximity_event',
-            self.proximity_callback,
             10
         )
 
@@ -89,8 +81,6 @@ class MainManager(Node):
         self.distraction_level_1_threshold = 5.0   # Level 1 (low): 0-5s
         self.distraction_level_2_threshold = 15.0  # Level 2 (medium): 5-15s
         # Level 3 (high): 15s+
-        
-        self.proximity_threshold = 0.5  # meters
         
         # Timer to detect when distraction has ended (if no event for N seconds)
         self.distraction_timeout_sec = 3.0
@@ -149,32 +139,6 @@ class MainManager(Node):
         if escalated:
             command_str = f"distraction_{current_level}"
             self.send_command(command_str)
-
-    def proximity_callback(self, msg: ProximityEvent):
-        """
-        Handle proximity event.
-        
-        Rule: proximity < 0.5m -> user in range -> "user_nearby"
-               proximity >= 0.5m -> user not in range -> "user_away"
-        """
-        distance = msg.distance
-        
-        # Determine if user is in range
-        if distance < self.proximity_threshold:
-            user_in_range = True
-            command_str = "user_nearby"
-        else:
-            user_in_range = False
-            command_str = "user_away"
-
-        # Log the event
-        self.session_tracker.log_proximity(distance, user_in_range)
-
-        # Forward command to State Manager
-        self.get_logger().info(
-            f'Proximity Event: distance={distance:.2f}m, user_in_range={user_in_range}'
-        )
-        self.send_command(command_str)
 
     def touch_callback(self, msg: TouchEvent):
         """
