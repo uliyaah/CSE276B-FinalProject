@@ -16,6 +16,7 @@ from std_msgs.msg import String
 
 from pupper_interfaces.srv import StateManagerCommand
 from pupper_interfaces.msg import Command
+from pupper_behaviors.behaviors import IdleBehavior, SentryBehavior
 
 
 class StateManager(Node):
@@ -161,16 +162,35 @@ class StateManager(Node):
     def emit_output_commands(self, state: str):
         """
         Emit commands to output managers based on new state.
-        TODO: Implement actual command emission to Movement, Display, Speaker managers.
-        For now, just log what would be sent.
+        Currently logs behavior commands. TODO: Route to actual output managers.
         """
-        self.get_logger().info(f'[TODO] Emitting output commands for state: {state}')
+        behavior_commands = None
         
-        # Placeholder for future implementation
-        # if state == "INTERVENTION_1":
-        #     self.send_to_movement_manager("...")
-        #     self.send_to_display_manager("...")
-        #     self.send_to_speaker_manager("...")
+        # Get behavior for this state
+        if state == "IDLE":
+            behavior_commands = IdleBehavior.get_all_commands()
+        elif state == "SENTRY":
+            behavior_commands = SentryBehavior.get_all_commands()
+        elif state in ["INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
+            # TODO: Implement behavior classes for intervention states
+            self.get_logger().info(f'[TODO] Behavior for {state} not yet implemented')
+            return
+        elif state == "PAUSED":
+            # TODO: Implement behavior for PAUSED state
+            self.get_logger().info(f'[TODO] Behavior for PAUSED not yet implemented')
+            return
+        
+        if behavior_commands:
+            self.get_logger().info(
+                f'Emitting behavior commands for {state}:\n'
+                f'  Movement: {behavior_commands["movement"]}\n'
+                f'  Display: {behavior_commands["display"]}\n'
+                f'  Speaker: {behavior_commands["speaker"]}'
+            )
+            # TODO: Actually send to Movement, Display, Speaker managers
+            # self.send_to_movement_manager(behavior_commands["movement"])
+            # self.send_to_display_manager(behavior_commands["display"])
+            # self.send_to_speaker_manager(behavior_commands["speaker"])
 
     def publish_state(self):
         """Publish current state so other nodes can stay in sync."""
