@@ -40,11 +40,17 @@ class StateManager(Node):
         # FSM state
         self.current_state = "IDLE"
         
+        # Track robot position: "back" (origin) or "approach" (close to user)
+        self.robot_position = "back"
+        
         # Define valid states
         self.valid_states = {"IDLE", "SENTRY", "INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3", "PAUSED"}
         
         # State publisher (so Main Manager knows current state)
         self.state_publisher = self.create_publisher(String, 'state_manager/state', 10)
+        
+        # Movement publisher (to Movement Manager)
+        self.movement_publisher = self.create_publisher(String, 'movement/command', 10)
         
         # Service server for commands from Main Manager
         self.command_service = self.create_service(
@@ -83,10 +89,9 @@ class StateManager(Node):
         - "distraction_medium"
         - "distraction_high"
         - "distraction_ended"
-        - "user_nearby"
-        - "user_away"
-        - "pause" (internal, for PAUSED state)
-        - "resume" (internal, to exit PAUSED)
+        
+        Note: Proximity detection (walk_towards, walk_away) is handled
+        by Main Manager publishing to movement/command topic directly.
         """
         try:
             # Touch event - always go to PAUSED
@@ -96,17 +101,6 @@ class StateManager(Node):
                 elif self.current_state == "IDLE":
                     self.transition_to("SENTRY")
                 # Else in PAUSED, ignore (user already paused)
-                return True
-            
-            # User away - return to IDLE
-            elif command == "user_away":
-                if self.current_state == "SENTRY":
-                    self.transition_to("IDLE")
-                return True
-            
-            # User nearby (no action needed, just log)
-            elif command == "user_nearby":
-                self.get_logger().info('User nearby')
                 return True
             
             # Distraction events
@@ -156,13 +150,47 @@ class StateManager(Node):
         # Publish state change
         self.publish_state()
         
+        # Emit movement commands based on state transitions
+        self.emit_movement_commands(old_state, new_state)
+        
         # Emit output commands based on new state
         self.emit_output_commands(new_state)
+
+    def emit_movement_commands(self, old_state: str, new_state: str):
+        """
+        Emit movement commands to Movement Manager based on state transitions.
+        
+        Rules:
+        - INTERVENTION_2 and INTERVENTION_3 require "approach" (move fixed amount toward user)
+        - Returning to SENTRY from INTERVENTION requires "back" (return to origin)
+        - INTERVENTION_1 stays in place (no approach)
+        """
+        # Check if new state requires approach
+        if new_state in ["INTERVENTION_2", "INTERVENTION_3"]:
+            if self.robot_position != "approach":
+                msg = String()
+                msg.data = "approach"
+                self.movement_publisher.publish(msg)
+                self.robot_position = "approach"
+                self.get_logger().info(f'Movement command: approach')
+        
+        # Check if returning to SENTRY requires moving back
+        elif new_state == "SENTRY" and old_state in ["INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
+            if self.robot_position != "back":
+                msg = String()
+                msg.data = "back"
+                self.movement_publisher.publish(msg)
+                self.robot_position = "back"
+                self.get_logger().info(f'Movement command: back')
+        
+        # INTERVENTION_1 doesn't require approach, just stays in place
+        # IDLE, PAUSED don't affect movement position
 
     def emit_output_commands(self, state: str):
         """
         Emit commands to output managers based on new state.
-        Currently logs behavior commands. TODO: Route to actual output managers.
+        Currently logs behavior commands. 
+        TODO: Route to actual output managers.
         """
         behavior_commands = None
         
