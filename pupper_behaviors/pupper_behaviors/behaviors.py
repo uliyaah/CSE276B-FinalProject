@@ -217,3 +217,38 @@ class PausedBehavior:
             "display": PausedBehavior.get_display_command(),
             "speaker": PausedBehavior.get_speaker_command()
         }
+
+
+class CelebrateBehavior:
+    """Behavior when robot is in CELEBRATE state (50-minute milestone)."""
+    
+    @staticmethod
+    def get_movement_command():
+        """Return movement command for CELEBRATE state."""
+        return {
+            "action": "celebrate",
+            "speed": 0.5
+        }
+    
+    @staticmethod
+    def get_display_command():
+        """Return display command for CELEBRATE state."""
+        return {
+            "face": "celebrate"
+        }
+    
+    @staticmethod
+    def get_speaker_command():
+        """Return speaker command for CELEBRATE state."""
+        return {
+            "sound": "celebrate"
+        }
+    
+    @staticmethod
+    def get_all_commands():
+        """Return all output commands as a dict."""
+        return {
+            "movement": CelebrateBehavior.get_movement_command(),
+            "display": CelebrateBehavior.get_display_command(),
+            "speaker": CelebrateBehavior.get_speaker_command()
+        }
