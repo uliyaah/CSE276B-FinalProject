@@ -23,7 +23,8 @@ from pupper_behaviors.behaviors import (
     Intervention1Behavior,
     Intervention2Behavior,
     Intervention3Behavior,
-    PausedBehavior
+    PausedBehavior,
+    CelebrateBehavior
 )
 
 
@@ -38,6 +39,7 @@ class StateManager(Node):
     - INTERVENTION_2: Responding to medium distraction
     - INTERVENTION_3: Responding to high distraction
     - PAUSED: Paused by user touch
+    - CELEBRATE: 50-minute milestone celebration
     
     Publishes state changes so Main Manager knows current state.
     """
@@ -52,7 +54,7 @@ class StateManager(Node):
         self.robot_position = "back"
         
         # Define valid states
-        self.valid_states = {"IDLE", "SENTRY", "INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3", "PAUSED"}
+        self.valid_states = {"IDLE", "SENTRY", "INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3", "PAUSED", "CELEBRATE"}
         
         # State publisher (so Main Manager knows current state)
         self.state_publisher = self.create_publisher(String, 'state_manager/state', 10)
@@ -142,6 +144,11 @@ class StateManager(Node):
                     self.transition_to("SENTRY")
                 return True
             
+            elif command == "celebrate":
+                # Transition to CELEBRATE from any state
+                self.transition_to("CELEBRATE")
+                return True
+            
             else:
                 self.get_logger().warn(f'Unknown command: {command}')
                 return False
@@ -197,6 +204,7 @@ class StateManager(Node):
                 self.robot_position = "back"
                 self.get_logger().info(f'Movement command: back')
         
+        # CELEBRATE is a milestone - stay in place
         # INTERVENTION_1 doesn't require approach, just stays in place
         # IDLE, PAUSED don't affect movement position
 
@@ -220,6 +228,8 @@ class StateManager(Node):
             behavior_commands = Intervention3Behavior.get_all_commands()
         elif state == "PAUSED":
             behavior_commands = PausedBehavior.get_all_commands()
+        elif state == "CELEBRATE":
+            behavior_commands = CelebrateBehavior.get_all_commands()
         
         if behavior_commands:
             self.get_logger().info(
