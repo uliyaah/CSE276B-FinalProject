@@ -9,7 +9,8 @@
 #
 # Display commands format:
 # {
-#     "face": "idle|sleep|offended|puppy_dog_eyes|puppy_dog_eyes2"
+#     "face": "idle|sleep|offended|puppy_dog_eyes|puppy_dog_eyes2",
+#     "interval": 0.5  (time in seconds between image switches, default: 0.5)
 # }
 #
 # Date: 05 June 2026
@@ -39,6 +40,7 @@ class DisplayManager(Node):
     
     Receives display commands from State Manager via display/command topic.
     Updates the display hardware based on requested face expressions.
+    Supports cycling through multiple images per reaction at configurable intervals.
     """
 
     def __init__(self):
@@ -56,6 +58,13 @@ class DisplayManager(Node):
         self.images_dir = Path(__file__).parent / 'images'
         self.images_dir.mkdir(exist_ok=True)
 
+        # Animation state tracking
+        self.animation_timer = None
+        self.current_face = None
+        self.current_image_index = 0
+        self.current_images = []
+        self.animation_interval = 0.5  # Default interval in seconds
+
         # Subscribe to display commands from State Manager
         self.display_sub = self.create_subscription(
             String,
@@ -72,62 +81,98 @@ class DisplayManager(Node):
         
         Args:
             msg: String message containing JSON display command
+                 Format: {"face": "idle", "interval": 0.5}
+                 interval (optional): Time in seconds between image switches (default: 0.5)
         """
         try:
             # Parse JSON display command
             command = json.loads(msg.data)
             face = command.get('face', 'idle')
+            interval = command.get('interval', 0.5)
             
-            self.get_logger().info(f'Display command received: {face}')
+            self.get_logger().info(f'Display command received: {face} with interval {interval}s')
             
             # Route to appropriate display handler
-            self.set_display(face)
+            self.set_display(face, interval)
             
         except json.JSONDecodeError as e:
             self.get_logger().error(f'Failed to parse display command: {e}')
         except Exception as e:
             self.get_logger().error(f'Error processing display command: {e}')
 
-    def set_display(self, face: str):
+    def set_display(self, face: str, interval: float = 0.5):
         """
-        Set the display to show the requested face expression.
+        Set the display to show the requested face expression and cycle through images.
         
         Args:
-            face: String identifier for the face expression
-                  (idle, sleep, offended, puppy_dog_eyes, neutral)
+            face: String identifier for the face expression (idle, sleep, offended, etc.)
+            interval: Time in seconds between image switches
         """
-        # Map face names to image filenames
-        face_to_image = {
-            'idle': 'idle.png',
-            'sleep': 'sleep.png',
-            'offended': 'offended.png',
-            'puppy_dog_eyes': 'puppy_dog_eyes.png',
-            'puppy_dog_eyes2': 'puppy_dog_eyes2.png',
-        }
+        # Cancel any existing animation timer
+        if self.animation_timer is not None:
+            self.destroy_timer(self.animation_timer)
+            self.animation_timer = None
         
-        #TODO: Upload reactions to images folder
+        # Get all images for the requested face
+        face_dir = self.images_dir / face
         
-        image_file = face_to_image.get(face)
-        if image_file:
-            self.get_logger().info(f'Setting display to {face}')
-            self.show_image_on_display(image_file)
-        else:
-            self.get_logger().warn(f'Unknown face expression: {face}')
+        if not face_dir.exists():
+            self.get_logger().warn(f'Face directory not found: {face_dir}')
+            return
+        
+        # Get all PNG images in the directory, sorted
+        self.current_images = sorted([
+            f for f in face_dir.iterdir()
+            if f.suffix.lower() in ['.png', '.jpg', '.jpeg']
+        ])
+        
+        if not self.current_images:
+            self.get_logger().warn(f'No images found in {face_dir}')
+            return
+        
+        self.current_face = face
+        self.current_image_index = 0
+        self.animation_interval = interval
+        
+        self.get_logger().info(f'Starting animation for {face} with {len(self.current_images)} images at {interval}s interval')
+        
+        # Display the first image
+        self.display_next_image()
+        
+        # Create timer for animation cycling
+        self.animation_timer = self.create_timer(interval, self.display_next_image)
+    
+    def display_next_image(self):
+        """
+        Display the next image in the animation sequence.
+        Cycles back to the first image when reaching the end.
+        """
+        if not self.current_images:
+            return
+        
+        # Get the current image
+        image_path = self.current_images[self.current_image_index]
+        
+        # Show the image
+        self.show_image_on_display(str(image_path))
+        
+        # Move to next image
+        self.current_image_index = (self.current_image_index + 1) % len(self.current_images)
 
-    def show_image_on_display(self, image_filename: str):
+    def show_image_on_display(self, image_path: str):
         """
         Load, resize, and display an image on the Pupper's LCD display.
         
         Args:
-            image_filename: Path to image file (relative to images/ directory)
+            image_path: Full path to image file
         """
         if not self.disp:
             self.get_logger().warn('Display not initialized, skipping image display')
             return
 
         try:
-            # Construct full image path
-            img_path = self.images_dir / image_filename
+            # Convert to Path object if needed
+            img_path = Path(image_path)
             
             if not img_path.exists():
                 self.get_logger().warn(f'Image file not found: {img_path}')
@@ -146,16 +191,16 @@ class DisplayManager(Node):
             img_file = resizeimage.resize_width(img_file, MAX_WIDTH)
             
             # Create temporary resized image
-            resized_filename = image_filename.rsplit('.', 1)[0] + '_resized.png'
+            resized_filename = img_path.stem + '_resized.png'
             resized_path = self.images_dir / resized_filename
             img_file.save(str(resized_path), img_file.format)
             
             # Display on Pupper's LCD
             self.disp.show_image(str(resized_path))
-            self.get_logger().info(f'Displayed image: {image_filename}')
+            self.get_logger().info(f'Displayed image: {img_path.name}')
             
         except Exception as e:
-            self.get_logger().error(f'Error displaying image {image_filename}: {e}')
+            self.get_logger().error(f'Error displaying image {image_path}: {e}')
 
 
 def main(args=None):
