@@ -199,7 +199,7 @@ class PausedBehavior:
     def get_display_command():
         """Return display command for PAUSED state."""
         return {
-            "face": "neutral"
+            "face": "idle"
         }
     
     @staticmethod
