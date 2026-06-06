@@ -149,6 +149,7 @@ class MainManager(Node):
                - In IDLE: start monitoring (IDLE -> SENTRY)
                - In SENTRY/INTERVENTION_1/2/3: pause (-> PAUSED)
                - In PAUSED: resume (PAUSED -> SENTRY)
+              touch on left -> "reset_position"
         """
         location = msg.location
 
@@ -159,6 +160,11 @@ class MainManager(Node):
                 f'Touch Event: {location} in state {self.state_manager_state} -> activate_pupper'
             )
             self.send_command(command_str)
+        elif location =="left":
+            command_str = "reset_position"
+            self.get_logger().info(
+                f'Touch Event: {location} in state {self.state_manager_state} -> reset_position'
+            )
         else:
             # Log the touch but don't forward (context-dependent)
             self.get_logger().info(

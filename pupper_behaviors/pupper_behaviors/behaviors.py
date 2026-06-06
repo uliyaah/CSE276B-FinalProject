@@ -50,8 +50,7 @@ class SentryBehavior:
     def get_movement_command():
         """Return movement command for SENTRY state."""
         return {
-            "action": "stay",
-            "speed": 0
+            "action": "lay",
         }
     
     @staticmethod
@@ -80,7 +79,36 @@ class SentryBehavior:
 class Intervention1Behavior:
     """Behavior for INTERVENTION_1 state (responding to low distraction)."""
     
-    #TODO
+    @staticmethod
+    def get_movement_command():
+        """Return movement command for INTERVENTION_1 state."""
+        return {
+            "action": "stay",
+            "speed": 0
+        }
+    
+    @staticmethod
+    def get_display_command():
+        """Return display command for INTERVENTION_1 state."""
+        return {
+            "face": "offended"
+        }
+    
+    @staticmethod
+    def get_speaker_command():
+        """Return speaker command for INTERVENTION_1 state."""
+        return {
+            "sound": "bark"
+        }
+    
+    @staticmethod
+    def get_all_commands():
+        """Return all output commands as a dict."""
+        return {
+            "movement": Intervention1Behavior.get_movement_command(),
+            "display": Intervention1Behavior.get_display_command(),
+            "speaker": Intervention1Behavior.get_speaker_command()
+        }
 
 
 
@@ -117,12 +145,43 @@ class Intervention2Behavior:
             "display": Intervention2Behavior.get_display_command(),
             "speaker": Intervention2Behavior.get_speaker_command()
         }
-
+        
 
 class Intervention3Behavior:
     """Behavior for INTERVENTION_3 state (responding to high distraction)."""
     
-    #TODO
+    @staticmethod
+    def get_movement_command():
+        """Return movement command for INTERVENTION_3 state."""
+        return {
+            "action": "approach_and_lay",
+            "speed": 0.3
+        }
+    
+    @staticmethod
+    def get_display_command():
+        """Return display command for INTERVENTION_3 state."""
+        return {
+            "face": "puppy_dog_eyes_2"
+        }
+    
+    @staticmethod
+    def get_speaker_command():
+        """Return speaker command for INTERVENTION_3 state."""
+        return {
+            "sound": "whimper"
+        }
+    
+    @staticmethod
+    def get_all_commands():
+        """Return all output commands as a dict."""
+        return {
+            "movement": Intervention3Behavior.get_movement_command(),
+            "display": Intervention3Behavior.get_display_command(),
+            "speaker": Intervention3Behavior.get_speaker_command()
+        }
+
+
 
 
 class PausedBehavior:
