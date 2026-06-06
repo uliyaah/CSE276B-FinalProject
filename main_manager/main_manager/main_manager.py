@@ -86,6 +86,9 @@ class MainManager(Node):
         self.distraction_timeout_sec = 3.0
         self.distraction_timer = None
 
+        # Timer to trigger celebrate state after 50 minutes
+        self.celebrate_timer = self.create_timer(3000.0, self.on_celebrate_timeout)
+
         self.get_logger().info('Main Manager initialized')
 
     def distraction_callback(self, msg: DistractionEvent):
@@ -207,6 +210,11 @@ class MainManager(Node):
         """Called when distraction timeout expires (no new event within threshold)."""
         self.reset_distraction_level()
 
+    def on_celebrate_timeout(self):
+        """Called after 50 minutes - trigger celebrate state."""
+        self.get_logger().info('50 minutes reached - triggering celebrate state')
+        self.send_command('celebrate')
+
     def on_state_update(self, msg: String):
         """
         Handle state update from State Manager.
@@ -240,6 +248,8 @@ def main(args=None):
         # Cancel any pending timers
         if main_manager.distraction_timer is not None:
             main_manager.distraction_timer.cancel()
+        if main_manager.celebrate_timer is not None:
+            main_manager.celebrate_timer.cancel()
         main_manager.destroy_node()
         rclpy.shutdown()
 
