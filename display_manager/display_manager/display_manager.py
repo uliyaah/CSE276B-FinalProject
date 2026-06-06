@@ -102,8 +102,10 @@ class DisplayManager(Node):
             'sleep': 'sleep.png',
             'offended': 'offended.png',
             'puppy_dog_eyes': 'puppy_dog_eyes.png',
-            'neutral': 'neutral.png',
+            'puppy_dog_eyes2': 'puppy_dog_eyes2.png',
         }
+        
+        #TODO: Upload reactions to images folder
         
         image_file = face_to_image.get(face)
         if image_file:
