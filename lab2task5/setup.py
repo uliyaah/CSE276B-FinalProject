@@ -1,0 +1,27 @@
+from setuptools import find_packages, setup
+
+package_name = 'lab2task5'
+
+setup(
+    name=package_name,
+    version='0.0.0',
+    packages=find_packages(exclude=['test']),
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='ssmyers',
+    maintainer_email='ssmyers@ucsd.edu',
+    description='Lab 2 Task 5: Robot moves based on touch and displays related image',
+    license='Apache-2.0',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'service = lab2task5.service_go_pupper:main',
+            'client = lab2task5.client_go_pupper:main',
+        ],
+    },
+)

@@ -19,10 +19,12 @@ find_package(std_msgs REQUIRED)        # general message passing
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Command.msg"
   "msg/DistractionEvent.msg"
-  "msg/ProximityEvent.msg"
   "msg/TouchEvent.msg"
+  "srv/GoPupper.srv"
   "srv/TouchPupper.srv"
   "srv/CameraPupper.srv"
+  "srv/PlayMusic.srv"
+  "srv/StopMusic.srv"
   "srv/StateManagerCommand.srv"
   DEPENDENCIES std_msgs geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )

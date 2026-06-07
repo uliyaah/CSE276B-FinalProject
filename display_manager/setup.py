@@ -4,7 +4,7 @@ package_name = 'display_manager'
 
 setup(
     name=package_name,
-    version='0.0.1',
+    version='0.0.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='CSE276B Team',
-    maintainer_email='cse276b@todo.todo',
-    description='Display Manager node - receives display commands and updates pupper screen display',
-    license='Apache License 2.0',
+    maintainer='ubuntu',
+    maintainer_email='atn046@ucsd.edu',
+    description='TODO: Package description',
+    license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

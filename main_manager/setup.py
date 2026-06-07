@@ -13,15 +13,17 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='ubuntu',
-    maintainer_email='ubuntu@todo.todo',
+    maintainer='Uliyaah',
+    maintainer_email='udionisio@ucsd.edu',
     description='TODO: Package description',
-    license='Apache-2.0',
+    license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'main_manager=main_manager.main_manager:main',
             'state_manager=main_manager.state_manager:main',
+	    'mock_manager=main_manager.mock_manager:main',
+
         ],
     },
 )

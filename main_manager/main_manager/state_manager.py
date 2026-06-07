@@ -5,7 +5,7 @@
 #          Receives commands from Main Manager and coordinates output managers.
 #          Publishes state transitions so Main Manager and other nodes stay in sync.
 #
-# States: IDLE, SENTRY, INTERVENTION_1, INTERVENTION_2, INTERVENTION_3, PAUSED
+# States: IDLE, SENTRY, INTERVENTION_1, INTERVENTION_2, INTERVENTION_3, PAUSED, CELEBRATE
 #
 # Date: 01 June 2026
 ########
@@ -50,8 +50,8 @@ class StateManager(Node):
         # FSM state
         self.current_state = "IDLE"
         
-        # Track robot position: "back" (origin) or "approach" (close to user)
-        self.robot_position = "back"
+        # Track robot position: "move_back" (origin) or "approach" (close to user)
+        self.robot_position = "move_back"
         
         # Define valid states
         self.valid_states = {"IDLE", "SENTRY", "INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3", "PAUSED", "CELEBRATE"}
@@ -183,26 +183,33 @@ class StateManager(Node):
         
         Rules:
         - INTERVENTION_2 and INTERVENTION_3 require "approach" (move fixed amount toward user)
-        - Returning to SENTRY from INTERVENTION requires "back" (return to origin)
+        - Returning to SENTRY from INTERVENTION requires "move_back" (return to origin)
         - INTERVENTION_1 stays in place (no approach)
         """
+    
+        # Check if new state requires shake
+        if new_state in ["INTERVENTION_1", "CELEBRATE"]:
+            msg = String()
+            msg.data = "shake"
+            self.movement_publisher.publish(msg)
+            self.get_logger().info(f'Movement command: shake')
+
         # Check if new state requires approach
-        if new_state in ["INTERVENTION_2", "INTERVENTION_3"]:
-            if self.robot_position != "approach":
-                msg = String()
-                msg.data = "approach"
-                self.movement_publisher.publish(msg)
-                self.robot_position = "approach"
-                self.get_logger().info(f'Movement command: approach')
+        elif new_state in ["INTERVENTION_2", "INTERVENTION_3"]:
+            msg = String()
+            msg.data = "approach"
+            self.movement_publisher.publish(msg)
+            self.robot_position = "approach"
+            self.get_logger().info(f'Movement command: approach')
         
         # Check if returning to SENTRY requires moving back
         elif new_state == "SENTRY" and old_state in ["INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
-            if self.robot_position != "back":
+            if self.robot_position != "move_back":
                 msg = String()
-                msg.data = "back"
+                msg.data = "move_back"
                 self.movement_publisher.publish(msg)
-                self.robot_position = "back"
-                self.get_logger().info(f'Movement command: back')
+                self.robot_position = "move_back"
+                self.get_logger().info(f'Movement command: move_back')
         
         # CELEBRATE is a milestone - stay in place
         # INTERVENTION_1 doesn't require approach, just stays in place

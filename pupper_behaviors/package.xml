@@ -3,9 +3,9 @@
 <package format="3">
   <name>pupper_behaviors</name>
   <version>0.0.0</version>
-  <description>Behavior definitions for different pupper states (IDLE, SENTRY, INTERVENTION)</description>
-  <maintainer email="ubuntu@todo.todo">ubuntu</maintainer>
-  <license>Apache-2.0</license>
+  <description>TODO: Package description</description>
+  <maintainer email="atn046@ucsd.edu">ubuntu</maintainer>
+  <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

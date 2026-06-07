@@ -1,14 +1,11 @@
-"""
-Pupper Behaviors: Defines how the robot should act in different states.
-"""
-
 from .behaviors import (
     IdleBehavior,
     SentryBehavior,
     Intervention1Behavior,
     Intervention2Behavior,
     Intervention3Behavior,
-    PausedBehavior
+    PausedBehavior,
+    CelebrateBehavior,
 )
 
 __all__ = [
@@ -17,5 +14,6 @@ __all__ = [
     'Intervention1Behavior',
     'Intervention2Behavior',
     'Intervention3Behavior',
-    'PausedBehavior'
+    'PausedBehavior',
+    'CelebrateBehavior'
 ]

@@ -14,8 +14,12 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='ubuntu',
-    maintainer_email='ubuntu@todo.todo',
-    description='Behavior definitions for pupper states',
-    license='Apache-2.0',
+    maintainer_email='atn046@ucsd.edu',
+    description='TODO: Package description',
+    license='TODO: License declaration',
     tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+        ],
+    },
 )

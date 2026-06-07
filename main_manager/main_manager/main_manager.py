@@ -20,7 +20,7 @@ from pupper_interfaces.msg import (
 )
 from pupper_interfaces.srv import StateManagerCommand
 
-from session_tracker import SessionTracker
+from .session_tracker import SessionTracker
 
 
 class MainManager(Node):
