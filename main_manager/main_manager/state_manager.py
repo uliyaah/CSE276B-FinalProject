@@ -49,9 +49,10 @@ class StateManager(Node):
 
         # FSM state
         self.current_state = "IDLE"
+        self.state_before_pause = None  # Track state to return to when unpausing
         
-        # Track robot position: "back" (origin) or "approach" (close to user)
-        self.robot_position = "back"
+        # Track robot position: "move_back" (origin) or "approach" (close to user)
+        self.robot_position = "move_back"
         
         # Define valid states
         self.valid_states = {"IDLE", "SENTRY", "INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3", "PAUSED", "CELEBRATE"}
@@ -110,13 +111,24 @@ class StateManager(Node):
         by Main Manager publishing to movement/command topic directly.
         """
         try:
-            # Touch event - always go to PAUSED
+            # Touch event - state-aware behavior
             if command == "activate_pupper":
                 if self.current_state in ["SENTRY", "INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
+                    # Save current state before pausing
+                    self.state_before_pause = self.current_state
                     self.transition_to("PAUSED")
                 elif self.current_state == "IDLE":
+                    # Start monitoring from idle
                     self.transition_to("SENTRY")
-                # Else in PAUSED, ignore (user already paused)
+                elif self.current_state == "PAUSED":
+                    # Resume to the previous state
+                    if self.state_before_pause:
+                        self.transition_to(self.state_before_pause)
+                        self.state_before_pause = None
+                    else:
+                        # Fallback to SENTRY if no previous state recorded
+                        self.transition_to("SENTRY")
+                # Else in CELEBRATE, ignore
                 return True
             
             # Distraction events
@@ -126,15 +138,12 @@ class StateManager(Node):
                 return True
             
             elif command == "distraction_medium":
-                if self.current_state == "SENTRY":
-                    self.transition_to("INTERVENTION_2")
-                elif self.current_state == "INTERVENTION_1":
+                if self.current_state == "INTERVENTION_1":
                     self.transition_to("INTERVENTION_2")
                 return True
             
             elif command == "distraction_high":
-                # Always escalate to INTERVENTION_3
-                if self.current_state in ["SENTRY", "INTERVENTION_1", "INTERVENTION_2"]:
+                if self.current_state == "INTERVENTION_2":
                     self.transition_to("INTERVENTION_3")
                 return True
             
@@ -183,7 +192,7 @@ class StateManager(Node):
         
         Rules:
         - INTERVENTION_2 and INTERVENTION_3 require "approach" (move fixed amount toward user)
-        - Returning to SENTRY from INTERVENTION requires "back" (return to origin)
+        - Returning to SENTRY from INTERVENTION requires "move_back" (return to origin)
         - INTERVENTION_1 stays in place (no approach)
         """
         # Check if new state requires approach
@@ -197,12 +206,12 @@ class StateManager(Node):
         
         # Check if returning to SENTRY requires moving back
         elif new_state == "SENTRY" and old_state in ["INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
-            if self.robot_position != "back":
+            if self.robot_position != "move_back":
                 msg = String()
-                msg.data = "back"
+                msg.data = "move_back"
                 self.movement_publisher.publish(msg)
-                self.robot_position = "back"
-                self.get_logger().info(f'Movement command: back')
+                self.robot_position = "move_back"
+                self.get_logger().info(f'Movement command: move_back')
         
         # CELEBRATE is a milestone - stay in place
         # INTERVENTION_1 doesn't require approach, just stays in place

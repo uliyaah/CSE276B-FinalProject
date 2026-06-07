@@ -226,7 +226,7 @@ class CelebrateBehavior:
     def get_movement_command():
         """Return movement command for CELEBRATE state."""
         return {
-            "action": "celebrate",
+            "action": "shake",
             "speed": 0.5
         }
     

@@ -20,7 +20,7 @@ from pupper_interfaces.msg import (
 )
 from pupper_interfaces.srv import StateManagerCommand
 
-from session_tracker import SessionTracker
+from .session_tracker import SessionTracker
 
 
 class MainManager(Node):
@@ -82,9 +82,10 @@ class MainManager(Node):
         self.distraction_level_2_threshold = 15.0  # Level 2 (medium): 5-15s
         # Level 3 (high): 15s+
         
-        # Timer to detect when distraction has ended (if no event for N seconds)
-        self.distraction_timeout_sec = 3.0
-        self.distraction_timer = None
+        # Distraction escalation timers
+        self.distraction_level_2_timer = None
+        self.distraction_level_3_timer = None
+        self.distraction_end_timer = None
 
         # Timer to trigger celebrate state after 50 minutes
         self.celebrate_timer = self.create_timer(3000.0, self.on_celebrate_timeout)
@@ -93,55 +94,84 @@ class MainManager(Node):
 
     def distraction_callback(self, msg: DistractionEvent):
         """
-        Handle distraction event with three-level escalation.
+        Handle distraction event with time-based escalation.
         
-        Levels:
-        - Level 1 (low): 0-5s
-        - Level 2 (medium): 5-15s
-        - Level 3 (high): 15s+
-        
-        Escalates incrementally if distraction continues past thresholds.
-        Resets to idle if no distraction event received for timeout period.
+        Escalation schedule (based on distraction duration):
+        - At 0s: Send distraction_low → INTERVENTION_1
+        - At 5s: Send distraction_medium → INTERVENTION_2
+        - At 15s: Send distraction_high → INTERVENTION_3
+        - At end: Send distraction_ended → SENTRY
         """
         duration = msg.duration
         
-        # Determine current distraction level based on duration
-        if duration <= self.distraction_level_1_threshold:
-            current_level = "low"
-        elif duration <= self.distraction_level_2_threshold:
-            current_level = "medium"
-        else:
-            current_level = "high"
-        
-        # Check if we need to escalate
-        escalated = False
-        if self.current_distraction_level is None or current_level != self.current_distraction_level:
-            # New distraction or escalation detected (includes initial low level)
-            escalated = True
-            self.current_distraction_level = current_level
-        
-        # Log the event
-        severity_desc = f"Level {['low', 'medium', 'high'].index(current_level) + 1} ({current_level})"
-        escalation_note = " [ESCALATED]" if escalated else ""
-        self.get_logger().info(
-            f'Distraction Event: duration={duration:.2f}s, severity={severity_desc}{escalation_note}'
-        )
+        self.get_logger().info(f'Distraction Event: duration={duration:.2f}s')
         
         # Log to session tracker
-        self.session_tracker.log_distraction(duration, current_level)
+        self.session_tracker.log_distraction(duration, "detected")
         
-        # Reset and restart the distraction timeout timer
-        if self.distraction_timer is not None:
-            self.distraction_timer.cancel()
-        self.distraction_timer = self.create_timer(
-            self.distraction_timeout_sec,
-            self.on_distraction_timeout
+        # Cancel any existing escalation timers
+        self._cancel_distraction_timers()
+        
+        # Immediately send distraction_low (triggers INTERVENTION_1)
+        self.current_distraction_level = "low"
+        self.send_command("distraction_low")
+        
+        # Schedule distraction_medium at 5 seconds if duration supports it
+        if duration > self.distraction_level_1_threshold:
+            delay = self.distraction_level_1_threshold
+            self.distraction_level_2_timer = self.create_timer(
+                delay,
+                self._on_escalate_to_medium
+            )
+        
+        # Schedule distraction_high at 15 seconds if duration supports it
+        if duration > self.distraction_level_2_threshold:
+            delay = self.distraction_level_2_threshold
+            self.distraction_level_3_timer = self.create_timer(
+                delay,
+                self._on_escalate_to_high
+            )
+        
+        # Schedule distraction_ended at end of duration
+        self.distraction_end_timer = self.create_timer(
+            duration,
+            self._on_distraction_end
         )
-        
-        # Only forward command if escalated (avoid spamming State Manager with same level)
-        if escalated:
-            command_str = f"distraction_{current_level}"
-            self.send_command(command_str)
+    
+    def _on_escalate_to_medium(self):
+        """Escalate to medium distraction level (INTERVENTION_2)."""
+        if self.current_distraction_level == "low":
+            self.current_distraction_level = "medium"
+            self.send_command("distraction_medium")
+            self.get_logger().info('Distraction escalated to medium (INTERVENTION_2)')
+        self.distraction_level_2_timer = None
+    
+    def _on_escalate_to_high(self):
+        """Escalate to high distraction level (INTERVENTION_3)."""
+        if self.current_distraction_level == "medium":
+            self.current_distraction_level = "high"
+            self.send_command("distraction_high")
+            self.get_logger().info('Distraction escalated to high (INTERVENTION_3)')
+        self.distraction_level_3_timer = None
+    
+    def _on_distraction_end(self):
+        """Distraction period ended, return to SENTRY."""
+        self.get_logger().info('Distraction ended, returning to SENTRY')
+        self.current_distraction_level = None
+        self.send_command("distraction_ended")
+        self.distraction_end_timer = None
+    
+    def _cancel_distraction_timers(self):
+        """Cancel all active distraction escalation timers."""
+        if self.distraction_level_2_timer is not None:
+            self.destroy_timer(self.distraction_level_2_timer)
+            self.distraction_level_2_timer = None
+        if self.distraction_level_3_timer is not None:
+            self.destroy_timer(self.distraction_level_3_timer)
+            self.distraction_level_3_timer = None
+        if self.distraction_end_timer is not None:
+            self.destroy_timer(self.distraction_end_timer)
+            self.distraction_end_timer = None
 
     def touch_callback(self, msg: TouchEvent):
         """
@@ -193,23 +223,6 @@ class MainManager(Node):
         future = self.state_manager_cli.call_async(request)
         future.add_done_callback(self.on_state_manager_response)
 
-    def reset_distraction_level(self):
-        """Reset distraction tracking to idle (called when distraction ends)."""
-        if self.current_distraction_level is not None:
-            self.get_logger().info('Distraction ended, reset to idle')
-            self.current_distraction_level = None
-            # Send a "distraction_ended" command to State Manager
-            self.send_command("distraction_ended")
-        
-        # Cancel the timer
-        if self.distraction_timer is not None:
-            self.distraction_timer.cancel()
-            self.distraction_timer = None
-
-    def on_distraction_timeout(self):
-        """Called when distraction timeout expires (no new event within threshold)."""
-        self.reset_distraction_level()
-
     def on_celebrate_timeout(self):
         """Called after 50 minutes - trigger celebrate state."""
         self.get_logger().info('50 minutes reached - triggering celebrate state')
@@ -246,8 +259,7 @@ def main(args=None):
         main_manager.get_logger().info('Shutting down Main Manager')
     finally:
         # Cancel any pending timers
-        if main_manager.distraction_timer is not None:
-            main_manager.distraction_timer.cancel()
+        main_manager._cancel_distraction_timers()
         if main_manager.celebrate_timer is not None:
             main_manager.celebrate_timer.cancel()
         main_manager.destroy_node()

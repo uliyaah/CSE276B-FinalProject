@@ -8,7 +8,8 @@ from .behaviors import (
     Intervention1Behavior,
     Intervention2Behavior,
     Intervention3Behavior,
-    PausedBehavior
+    PausedBehavior,
+    CelebrateBehavior
 )
 
 __all__ = [
@@ -17,5 +18,8 @@ __all__ = [
     'Intervention1Behavior',
     'Intervention2Behavior',
     'Intervention3Behavior',
-    'PausedBehavior'
+    'PausedBehavior',
+    'CelebrateBehavior'
 ]
+
+

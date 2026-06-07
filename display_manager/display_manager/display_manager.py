@@ -25,7 +25,6 @@ from pathlib import Path
 # Pupper libraries for using the LCD Display
 from MangDang.mini_pupper.display import Display, BehaviorState
 import time
-from resizeimage import resizeimage  # library for image resizing
 from PIL import Image, ImageDraw, ImageFont  # library for image manipulation
 
 
@@ -72,6 +71,9 @@ class DisplayManager(Node):
             self.display_callback,
             10
         )
+        
+        # Initialize display to idle
+        self.set_display('idle', 0.5)
 
         self.get_logger().info('Display Manager initialized and listening on display/command')
 
@@ -188,7 +190,8 @@ class DisplayManager(Node):
                     img_file = Image.new('RGBA', img_old.size, (255, 255, 255))
             
             # Resize to fit display (320x240)
-            img_file = resizeimage.resize_width(img_file, MAX_WIDTH)
+            # Use PIL's resize which can upscale if needed
+            img_file = img_file.resize((MAX_WIDTH, DISPLAY_HEIGHT), Image.Resampling.LANCZOS)
             
             # Create temporary resized image
             resized_filename = img_path.stem + '_resized.png'

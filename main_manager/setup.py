@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'main_manager=main_manager.main_manager:main',
             'state_manager=main_manager.state_manager:main',
+            'mock_manager=main_manager.mock_manager:main',
         ],
     },
 )
