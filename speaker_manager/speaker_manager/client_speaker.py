@@ -19,7 +19,7 @@ from pupper_interfaces.srv import PlayMusic, StopMusic
 class SpeakerClient(Node):
 	def __init__(self):
 		super().__init__('speaker_client')
-
+		
 		self.subscription = self.create_subscription(
 			String,
 			'speaker/command',
@@ -38,6 +38,7 @@ class SpeakerClient(Node):
 
 		self.req_play = PlayMusic.Request()
 		self.req_stop = StopMusic.Request()
+		self.pending_futures = set()
 
 		print('Speaker client listening on topic: speaker/command')
 		print('Play Music service client ready to call: play_music')
@@ -52,29 +53,42 @@ class SpeakerClient(Node):
 		print("Setting speaker to: %s" % sound)
 		soundFileStr = None
 		if sound == 'silent':
-			return
-		elif sound == 'music':
-			soundFileStr = '/home/ubuntu/ros2_ws/src/speaker_manager/speaker_manager/growl.wav'
+			soundFileStr = 'SILENCE'
+		elif sound == 'growl':
+			soundFileStr = 'growl.wav'
 		elif sound == 'bark':
-			soundFileStr = '/home/ubuntu/ros2_ws/src/speaker_manager/speaker_manager/growl.wav'
+			soundFileStr = 'bark.wav'
 		elif sound == 'whine':
-			soundFileStr = '/home/ubuntu/ros2_ws/src/speaker_manager/speaker_manager/growl.wav'
+			soundFileStr = 'whine.wav'
 		elif sound == "celebrate":
-			soundFileStr = '/home/ubuntu/ros2_ws/src/speaker_manager/speaker_manager/growl.wav'
+			soundFileStr = 'celebrate.wav'
 		else:
 			print(f'Unknown sound command: {sound}')
-			return 
+			return
 
-		""" script_dir = os.path.dirname(os.path.abspath(__file__))
-		file_path = os.path.join(script_dir, soundFileStr)
-		data, fs = sf.read(file_path)
-		sd.play(data, fs, device=11)
-		status = sd.wait() """
 		self.req_play = PlayMusic.Request()
-		self.req_play.file_name = '/home/ubuntu/ros2_ws/src/speaker_manager/speaker_manager/growl.wav'
-		self.future = self.playMusicClient.call_async(self.req_play)  # send the command to the server
-		rclpy.spin_until_future_complete(self, self.future)
-		return self.future.result()
+		self.req_play.file_name = soundFileStr
+		print(f"Requesting to play music file: {self.req_play.file_name}")
+		future = self.playMusicClient.call_async(self.req_play)
+		self.pending_futures.add(future)
+		future.add_done_callback(self._handle_play_music_response)
+		return future
+
+	def _handle_play_music_response(self, future):
+		self.pending_futures.discard(future)
+		try:
+			response = future.result()
+			print(f"Play music service response: {response.message}")
+		except Exception as exc:
+			self.get_logger().error(f'Play music service call failed: {exc}')
+
+	def _handle_stop_music_response(self, future):
+		self.pending_futures.discard(future)
+		try:
+			response = future.result()
+			print(f"Stop music service response: {response.message}")
+		except Exception as exc:
+			self.get_logger().error(f'Stop music service call failed: {exc}')
 
 def main(args=None):
 	# Initializing rclpy (ROS Client Library for Python)
@@ -95,3 +109,4 @@ def main(args=None):
 
 if __name__ == '__main__':
 	main()
+

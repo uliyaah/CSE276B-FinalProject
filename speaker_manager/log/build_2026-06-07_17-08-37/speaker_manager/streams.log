@@ -1,0 +1,23 @@
+[6.105s] Invoking command in '/home/ubuntu/ros2_ws/src/speaker_manager': PYTHONPATH=/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/prefix_override:/home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/speaker_manager build --build-base /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build install --record /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log --single-version-externally-managed install_data
+[8.419s] running egg_info
+[8.425s] writing build/speaker_manager/speaker_manager.egg-info/PKG-INFO
+[8.436s] writing dependency_links to build/speaker_manager/speaker_manager.egg-info/dependency_links.txt
+[8.438s] writing entry points to build/speaker_manager/speaker_manager.egg-info/entry_points.txt
+[8.439s] writing requirements to build/speaker_manager/speaker_manager.egg-info/requires.txt
+[8.439s] writing top-level names to build/speaker_manager/speaker_manager.egg-info/top_level.txt
+[8.447s] reading manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+[8.453s] writing manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+[8.453s] running build
+[8.454s] running build_py
+[8.458s] running install
+[8.459s] running install_lib
+[8.486s] running install_data
+[8.489s] running install_egg_info
+[8.498s] removing '/home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager-0.0.0-py3.10.egg-info' (and everything under it)
+[8.501s] Copying build/speaker_manager/speaker_manager.egg-info to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager-0.0.0-py3.10.egg-info
+[8.512s] running install_scripts
+[8.666s] Installing client script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+[8.667s] Installing music_server script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+[8.668s] Installing service script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+[8.670s] writing list of installed files to '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log'
+[8.860s] Invoked command in '/home/ubuntu/ros2_ws/src/speaker_manager' returned '0': PYTHONPATH=/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/prefix_override:/home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/speaker_manager build --build-base /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build install --record /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log --single-version-externally-managed install_data

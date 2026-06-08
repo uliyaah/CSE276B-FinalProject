@@ -14,15 +14,17 @@ class MockSpeakerPublisher(Node):
         self.publisher = self.create_publisher(String, 'speaker/command', 10)
 
         self.sequence = [
-            'music',
+            'celebrate',
+            'growl',
             'whine',
             'bark',
             'silent',
         ]
         self.index = 0
+        self.interval = 15.0  # seconds
 
-        self.timer = self.create_timer(2.0, self.publish_next)
-        self.get_logger().info('Mock speaker publisher started (2s interval)')
+        self.timer = self.create_timer(self.interval, self.publish_next)
+        self.get_logger().info(f'Mock speaker publisher started ({self.interval}s interval)')
 
     def publish_next(self):
         sound = self.sequence[self.index]
@@ -51,3 +53,4 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+

@@ -47,6 +47,7 @@ class MainManager(Node):
             10
         )
 
+        # Subscribe to touch events (published by input_detection)
         self.touch_sub = self.create_subscription(
             TouchEvent,
             'touch_event',
@@ -78,70 +79,76 @@ class MainManager(Node):
         self.current_distraction_level = None  # None, "low", "medium", "high"
         
         # Distraction escalation thresholds (in seconds)
-        self.distraction_level_1_threshold = 5.0   # Level 1 (low): 0-5s
-        self.distraction_level_2_threshold = 15.0  # Level 2 (medium): 5-15s
-        # Level 3 (high): 15s+
-        
-        # Timer to detect when distraction has ended (if no event for N seconds)
-        self.distraction_timeout_sec = 3.0
-        self.distraction_timer = None
+        self.distraction_level_1_threshold = 2.0   # Delay before sending distraction_low
+        self.distraction_level_2_threshold = 5.0   # Level 2 (medium): 5s from start
+        self.distraction_level_3_threshold = 15.0  # Level 3 (high): 15s from start
+        # Level 1 (low): starts after 2s delay
+    
 
         # Timer to trigger celebrate state after 50 minutes
-        self.celebrate_timer = self.create_timer(3000.0, self.on_celebrate_timeout)
+        self.celebrate_timer = self.create_timer(60.0, self.on_celebrate_timeout)
 
         self.get_logger().info('Main Manager initialized')
 
     def distraction_callback(self, msg: DistractionEvent):
         """
-        Handle distraction event with three-level escalation.
+        Handle distraction event with time-based escalation.
         
-        Levels:
-        - Level 1 (low): 0-5s
-        - Level 2 (medium): 5-15s
-        - Level 3 (high): 15s+
-        
-        Escalates incrementally if distraction continues past thresholds.
-        Resets to idle if no distraction event received for timeout period.
+        Escalation schedule (based on distraction duration):
+        - At 2s: Send distraction_low → INTERVENTION_1
+        - At 5s: Send distraction_medium → INTERVENTION_2
+        - At 15s: Send distraction_high → INTERVENTION_3
+        - At end: Send distraction_ended → SENTRY
         """
         duration = msg.duration
+        self.get_logger().info(f'duration: {duration}')
+                
+        # Handle premature distraction end
+        if duration < 0:
+            self.get_logger().info('Distraction ended')
+            self.send_command("distraction_ended")
+            return
+
+        # Schedule distraction_high at 15 seconds if duration supports it
+        elif duration > self.distraction_level_3_threshold:
+            self.get_logger().info(f'Level 3: {self.current_distraction_level}')
+            self._on_escalate_to_high()
         
-        # Determine current distraction level based on duration
-        if duration <= self.distraction_level_1_threshold:
-            current_level = "low"
-        elif duration <= self.distraction_level_2_threshold:
-            current_level = "medium"
-        else:
-            current_level = "high"
+        # Schedule distraction_medium at 5 seconds if duration supports it
+        elif duration > self.distraction_level_2_threshold:
+            self.get_logger().info(f'Level 2: {self.current_distraction_level}')
+            self._on_escalate_to_medium()
+            
+        # New distraction - schedule escalation timers
+        elif duration > self.distraction_level_1_threshold:
+            self.get_logger().info(f'Level 1: {self.current_distraction_level}')
+            self._on_escalate_to_low()
         
-        # Check if we need to escalate
-        escalated = False
-        if self.current_distraction_level is None or current_level != self.current_distraction_level:
-            # New distraction or escalation detected (includes initial low level)
-            escalated = True
-            self.current_distraction_level = current_level
+    
+    def _on_escalate_to_low(self):
+        """Escalate to low distraction level (INTERVENTION_1) after 2s delay."""
         
-        # Log the event
-        severity_desc = f"Level {['low', 'medium', 'high'].index(current_level) + 1} ({current_level})"
-        escalation_note = " [ESCALATED]" if escalated else ""
-        self.get_logger().info(
-            f'Distraction Event: duration={duration:.2f}s, severity={severity_desc}{escalation_note}'
-        )
-        
-        # Log to session tracker
-        self.session_tracker.log_distraction(duration, current_level)
-        
-        # Reset and restart the distraction timeout timer
-        if self.distraction_timer is not None:
-            self.distraction_timer.cancel()
-        self.distraction_timer = self.create_timer(
-            self.distraction_timeout_sec,
-            self.on_distraction_timeout
-        )
-        
-        # Only forward command if escalated (avoid spamming State Manager with same level)
-        if escalated:
-            command_str = f"distraction_{current_level}"
-            self.send_command(command_str)
+        self.current_distraction_level = "low"
+        self.send_command("distraction_low")
+        self.get_logger().info('Distraction escalated to low (INTERVENTION_1)')
+    
+    def _on_escalate_to_medium(self):
+        """Escalate to medium distraction level (INTERVENTION_2)."""
+        self.current_distraction_level = "medium"
+        self.send_command("distraction_medium")
+        self.get_logger().info('Distraction escalated to medium (INTERVENTION_2)')
+    
+    def _on_escalate_to_high(self):
+        """Escalate to high distraction level (INTERVENTION_3)."""
+        self.current_distraction_level = "high"
+        self.send_command("distraction_high")
+        self.get_logger().info('Distraction escalated to high (INTERVENTION_3)')
+    
+    def _on_distraction_end(self):
+        """Distraction period ended, return to SENTRY."""
+        self.get_logger().info('Distraction ended, returning to SENTRY')
+        self.current_distraction_level = None
+        self.send_command("distraction_ended")
 
     def touch_callback(self, msg: TouchEvent):
         """
@@ -163,11 +170,12 @@ class MainManager(Node):
                 f'Touch Event: {location} in state {self.state_manager_state} -> activate_pupper'
             )
             self.send_command(command_str)
-        elif location =="left":
+        elif location == "left":
             command_str = "reset_position"
             self.get_logger().info(
                 f'Touch Event: {location} in state {self.state_manager_state} -> reset_position'
             )
+            self.send_command(command_str)
         else:
             # Log the touch but don't forward (context-dependent)
             self.get_logger().info(
@@ -192,23 +200,6 @@ class MainManager(Node):
         # Call service asynchronously
         future = self.state_manager_cli.call_async(request)
         future.add_done_callback(self.on_state_manager_response)
-
-    def reset_distraction_level(self):
-        """Reset distraction tracking to idle (called when distraction ends)."""
-        if self.current_distraction_level is not None:
-            self.get_logger().info('Distraction ended, reset to idle')
-            self.current_distraction_level = None
-            # Send a "distraction_ended" command to State Manager
-            self.send_command("distraction_ended")
-        
-        # Cancel the timer
-        if self.distraction_timer is not None:
-            self.distraction_timer.cancel()
-            self.distraction_timer = None
-
-    def on_distraction_timeout(self):
-        """Called when distraction timeout expires (no new event within threshold)."""
-        self.reset_distraction_level()
 
     def on_celebrate_timeout(self):
         """Called after 50 minutes - trigger celebrate state."""
@@ -246,8 +237,6 @@ def main(args=None):
         main_manager.get_logger().info('Shutting down Main Manager')
     finally:
         # Cancel any pending timers
-        if main_manager.distraction_timer is not None:
-            main_manager.distraction_timer.cancel()
         if main_manager.celebrate_timer is not None:
             main_manager.celebrate_timer.cancel()
         main_manager.destroy_node()

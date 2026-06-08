@@ -15,7 +15,7 @@ class detect_position(Node):
         self.img_subscription = self.create_subscription(Image, '/oak/rgb/image_raw', self.store_img, 10)
         self.img_subscription #this is just to remove unused variable warnings
 
-        #self.cmd_subscription = self.create_subscription(String, 'position_commands', self.set_command, 10)
+        self.cmd_subscription = self.create_subscription(String, 'movement/command', self.set_command, 10)
         #publish to topic client_position takes in 
         #self.publisher_ = self.create_publisher(String, "/pupper/cmd", 10)
         self.cli = self.create_client(GoPupper, 'pup_command')
@@ -159,27 +159,27 @@ def main(args=None):
     echo_obj = detect_position()
     
     while rclpy.ok():
-        cmd = input("enter approach, move_away, align, face_away, get_down, get_up, shake:\n")
-
-        if cmd == "approach":
+       # cmd = input("enter approach, move_away, align, face_away, get_down, get_up, shake:\n")
+        rclpy.spin_once(echo_obj, timeout_sec=0.1)
+        if echo_obj.latest_command == "approach":
             echo_obj.move_towards()
             echo_obj.latest_command = None
-        elif cmd == "move_away":
+        elif echo_obj.latest_command == "move_away":
             echo_obj.move_away()
             echo_obj.latest_command = None
-        elif cmd == "align":
+        elif echo_obj.latest_command == "align":
             echo_obj.face_towards()
             echo_obj.latest_command = None
-        elif cmd == "face_away":
+        elif echo_obj.latest_command== "face_away":
             echo_obj.face_away()
             echo_obj.latest_command = None
-        elif cmd == "get_down":
+        elif echo_obj.latest_command== "get_down":
             echo_obj.get_down()
             echo_obj.latest_command = None
-        elif cmd == "get_up":
+        elif echo_obj.latest_command == "get_up":
             echo_obj.get_up()
             echo_obj.latest_command = None
-        elif cmd == "shake":
+        elif echo_obj.latest_command == "shake":
             echo_obj.shake()
             echo_obj.latest_command = None
                     

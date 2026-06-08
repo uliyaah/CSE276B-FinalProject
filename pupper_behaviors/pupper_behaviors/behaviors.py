@@ -64,7 +64,7 @@ class SentryBehavior:
     def get_speaker_command():
         """Return speaker command for SENTRY state."""
         return {
-            "sound": "music"
+            "sound": "silent"
         }
     
     @staticmethod
@@ -127,7 +127,7 @@ class Intervention2Behavior:
     def get_display_command():
         """Return display command for INTERVENTION_2 state."""
         return {
-            "face": "puppy_dog_eyes"
+            "face": "puppy_eyes_1"
         }
     
     @staticmethod
@@ -162,14 +162,14 @@ class Intervention3Behavior:
     def get_display_command():
         """Return display command for INTERVENTION_3 state."""
         return {
-            "face": "puppy_dog_eyes_2"
+            "face": "puppy_eyes_2"
         }
     
     @staticmethod
     def get_speaker_command():
         """Return speaker command for INTERVENTION_3 state."""
         return {
-            "sound": "whimper"
+            "sound": "whine"
         }
     
     @staticmethod

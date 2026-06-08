@@ -20,7 +20,6 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'service_touch = input_detection.service_touch:main',
             'client_touch = input_detection.client_touch:main',
             'service_camera = input_detection.service_camera:main',
             'client_camera = input_detection.client_camera:main',

@@ -30,6 +30,7 @@ class MusicPlayer:
         self.audio = pyaudio.PyAudio()
         self.playing = False
         self.play_thread = None
+        self._state_lock = threading.Lock()
 
     def _play_music(self, file_path, start_second, duration):
         file_extension = file_path.split(".")[-1]
@@ -64,6 +65,8 @@ class MusicPlayer:
             self.playing = False
 
     def start_music(self, file_path, start_second=0, duration=0.0):
+        self.stop_music(wait=True)
+
         self.play_thread = threading.Thread(
             target=self._play_music,
             args=(file_path, start_second, duration),
@@ -71,10 +74,18 @@ class MusicPlayer:
         )
         self.play_thread.start()
 
-    def stop_music(self):
-        self.playing = False
+    def stop_music(self, wait=False, timeout=None):
+        with self._state_lock:
+            self.playing = False
+            thread = self.play_thread
+
+        if wait and thread is not None and thread.is_alive() and thread is not threading.current_thread():
+            thread.join(timeout=timeout)
+            return not thread.is_alive()
+
+        return True
 
     def destroy(self):
-        self.stop_music()
+        self.stop_music(wait=True)
         self.audio.terminate()
-        self.play_thread.join()
+

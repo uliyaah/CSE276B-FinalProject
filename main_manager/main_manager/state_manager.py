@@ -49,6 +49,7 @@ class StateManager(Node):
 
         # FSM state
         self.current_state = "IDLE"
+        self.state_before_pause = None  # Track state to return to when unpausing
         
         # Track robot position: "move_back" (origin) or "approach" (close to user)
         self.robot_position = "move_back"
@@ -75,9 +76,6 @@ class StateManager(Node):
             self.handle_command
         )
         
-        # TODO: Create clients/publishers for output managers (Movement, Display, Speaker)
-        # For now, just stubs for logging
-        
         self.get_logger().info(f'State Manager initialized in state: {self.current_state}')
         self.publish_state()
 
@@ -87,7 +85,6 @@ class StateManager(Node):
         Parse command string and trigger state transition.
         """
         command_str = request.command.command
-        self.get_logger().info(f'Received command: {command_str}')
         
         # Dispatch command to transition logic
         success = self.process_command(command_str)
@@ -110,37 +107,45 @@ class StateManager(Node):
         by Main Manager publishing to movement/command topic directly.
         """
         try:
-            # Touch event - always go to PAUSED
+            # Touch event - state-aware behavior
             if command == "activate_pupper":
                 if self.current_state in ["SENTRY", "INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
+                    # Save current state before pausing
+                    self.state_before_pause = self.current_state
                     self.transition_to("PAUSED")
                 elif self.current_state == "IDLE":
+                    # Start monitoring from idle
                     self.transition_to("SENTRY")
-                # Else in PAUSED, ignore (user already paused)
+                elif self.current_state == "PAUSED":
+                    # Resume to the previous state
+                    if self.state_before_pause:
+                        self.transition_to(self.state_before_pause)
+                        self.state_before_pause = None
+                    else:
+                        # Fallback to SENTRY if no previous state recorded
+                        self.transition_to("SENTRY")
+                # Else in CELEBRATE, ignore
                 return True
             
             # Distraction events
             elif command == "distraction_low":
-                if self.current_state == "SENTRY":
+                if self.current_state != "INTERVENTION_1":
                     self.transition_to("INTERVENTION_1")
                 return True
             
             elif command == "distraction_medium":
-                if self.current_state == "SENTRY":
-                    self.transition_to("INTERVENTION_2")
-                elif self.current_state == "INTERVENTION_1":
+                if self.current_state != "INTERVENTION_2":
                     self.transition_to("INTERVENTION_2")
                 return True
             
             elif command == "distraction_high":
-                # Always escalate to INTERVENTION_3
-                if self.current_state in ["SENTRY", "INTERVENTION_1", "INTERVENTION_2"]:
+                if self.current_state != "INTERVENTION_3":
                     self.transition_to("INTERVENTION_3")
                 return True
             
             elif command == "distraction_ended":
                 # Return to SENTRY from intervention states
-                if self.current_state in ["INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
+                if self.current_state in ["SENTRY","INTERVENTION_1", "INTERVENTION_2", "INTERVENTION_3"]:
                     self.transition_to("SENTRY")
                 return True
             

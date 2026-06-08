@@ -53,22 +53,20 @@ class CameraDurationClient(Node):
             self.get_logger().info('Target color detected.')
         elif not color_visible and self.color_is_visible:
             self.get_logger().info('Target color disappeared.')
-            self.color_started_at = None
-
         self.color_is_visible = color_visible
 
-        #Using the imshow function to echo display the image frame currrently being published by the OAK-D
-        cv2.imshow("camera", frame)
-
-        #This shows each image frame for 10 milliseconds
-        cv2.waitKey(10)
 
     def send_duration_update(self):
         # only send updates if the color is currently visible and we have a valid start time to calculate duration from
-        if not self.color_is_visible or self.color_started_at is None:
-            return
+        duration = -1.0
+        if not self.color_is_visible:
+            if self.color_started_at != None:
+                self.get_logger().info('Color is no longer visible. Resetting duration timer.')
+                self.color_started_at = None # Reset start time if color is not visible to avoid stale duration calculations
+                duration = -1.0
+        else:
+            duration = float(time.time() - self.color_started_at)
 
-        duration = float(time.time() - self.color_started_at)
         req = CameraPupper.Request()
         req.duration = duration
 
