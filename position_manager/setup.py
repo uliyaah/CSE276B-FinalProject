@@ -20,9 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        'detect_position = position_manager.detect_position:main',
+        'movement_manager = position_manager.movement_manager:main',
         'service_position = position_manager.service_position:main',
-        'client_position = position_manager.client_position:main',
         ],
     },
 )

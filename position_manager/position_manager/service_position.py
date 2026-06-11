@@ -1,19 +1,19 @@
 ########
-# Name: service_go_pupper.py
+# Name: service_position.py
 #
 # Purpose: Go Pupper Service. Code which will send movement commands from client to pupper.
 #
 # Usage: After conpling and sourcing the ~/ros2_ws/install/setup.bash , launch the service like this:
-#         ros2 run lab2task4 service
+#         ros2 run position_manager service_position
 #        (See client code for how to use)
 #
-# Author: Sierra Myers <ssmyers@ucsd.edu>, Uliyaah Dionisio <udionisio@ucsd.edu>, Angie Nguyen <atn046@ucsd.edu>, Prof. Riek <lriek@ucsd.edu>
+# Author: Sierra Myers <ssmyers@ucsd.edu>, Prof. Riek <lriek@ucsd.edu>
 #
 # Acknowledgements: Used some code from ROS 2 Tutorials and MangDang's ROS git repo 
 #  https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html
 #  https://github.com/mangdangroboticsclub/mini_pupper_ros/blob/ros2-dev/mini_pupper_dance/mini_pupper_dance/dance_server.py
 #
-# Date: 09 May 2026
+# Date: 04 June 2026
 #
 # Prof. Riek notes: You likely don't need to change this file for Lab 2. But maybe in your final
 #                   project you may want to change some things in this.
@@ -103,31 +103,25 @@ class MinimalService(Node):
             self.vel_publisher_.publish(velocity_cmd)
             self.get_logger().info('Publishing: "%s"' % request.command)
             time.sleep(self.interval)
+
         elif(request.command == 'move_back'):
             velocity_cmd.linear.x = -0.65    # .5 in the linear X direction moves us forward
             self.vel_publisher_.publish(velocity_cmd)   # publish the command
             self.get_logger().info('Publishing: "%s"' % request.command)  # Log what happened
             time.sleep(self.interval)  # Wait and make sure the robot moved
+
         elif (request.command == 'turn_left'):
             velocity_cmd.angular.z = 0.75
             self.vel_publisher_.publish(velocity_cmd)
             self.get_logger().info('Publishing: "%s"' % request.command)
             time.sleep(self.interval)  
+
         elif (request.command == 'turn_right'):
             velocity_cmd.angular.z = -0.75
             self.vel_publisher_.publish(velocity_cmd)
             self.get_logger().info('Publishing: "%s"' % request.command)
             time.sleep(self.interval) 
-        elif (request.command == 'up'):
-            velocity_cmd.linear.z = 0.25
-            self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s"' % request.command)
-            time.sleep(self.interval) 
-        elif (request.command == 'down'):
-            velocity_cmd.linear.z = -0.25
-            self.vel_publisher_.publish(velocity_cmd)
-            self.get_logger().info('Publishing: "%s"' % request.command)
-            time.sleep(self.interval)
+            
         elif (request.command == 'stay'):
             time.sleep(self.interval)  # do nothing
 
