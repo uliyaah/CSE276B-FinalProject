@@ -332,10 +332,10 @@ def main(args=None):
         elif detect_obj.latest_command == "move_away":
             detect_obj.move_away()
             detect_obj.latest_command = None
-        elif detect_obj.latest_command == "align":
+        elif detect_obj.latest_command == "align": #not used by state_manager
             detect_obj.face_towards()
             detect_obj.latest_command = None
-        elif detect_obj.latest_command == "face_away":
+        elif detect_obj.latest_command == "face_away": #not used by state_manger
             detect_obj.face_away()
             detect_obj.latest_command = None
         elif detect_obj.latest_command == "beg":
