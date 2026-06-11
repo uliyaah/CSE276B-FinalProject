@@ -1,3 +1,18 @@
+########
+# Name: client_camera.py
+#
+# Purpose: Camera Pupper Client. Sample client code which will communicate with the CameraPupper service by
+#          passing camera commands and handling image data
+#
+# Usage: First launch the service (see lab/file). Then you can run the client like this:
+#        ros2 run input_detection client_camera
+#
+# Acknowledgements: Used some code from ROS 2 Tutorials and MangDang's ROS git repo 
+#  https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html
+#
+# Date: 11 June 2026
+########
+
 import time
 
 import cv2
@@ -10,6 +25,12 @@ from sensor_msgs.msg import Image
 from pupper_interfaces.srv import CameraPupper
 
 
+###
+# Name: Camera Duration Client
+#
+# Purpose: Client for communicating with the CameraPupper service and handling camera data
+#
+######
 class CameraDurationClient(Node):
     def __init__(self):
         super().__init__('camera_duration_client')
@@ -38,6 +59,11 @@ class CameraDurationClient(Node):
         # Send duration updates at this interval (in seconds) when the color is visible
         self.timer = self.create_timer(0.2, self.send_duration_update)
 
+    #####
+    # Name: check_color_in_frame
+    # Purpose: This will check for the presence of the target color in the camera frame.
+    # Arguments: data - the raw image data from the camera topic subscription
+    #####
     def check_color_in_frame(self, data):
         frame = self.br.imgmsg_to_cv2(data)
         self.last_frame = frame
@@ -55,7 +81,11 @@ class CameraDurationClient(Node):
             self.get_logger().info('Target color disappeared.')
         self.color_is_visible = color_visible
 
-
+    #####
+    # Name: send_duration_update
+    # Purpose: This will send a duration update to the camera service based on the visibility of the target color.
+    # Arguments: N/A
+    #####
     def send_duration_update(self):
         # only send updates if the color is currently visible and we have a valid start time to calculate duration from
         duration = -1.0
@@ -73,6 +103,11 @@ class CameraDurationClient(Node):
         future = self.cli.call_async(req)
         future.add_done_callback(self.on_response)
 
+    #####
+    # Name: on_response
+    # Purpose: This will handle the response from the camera service call.
+    # Arguments: future - the asynchronous future object representing the service call
+    #####
     def on_response(self, future):
         try:
             response = future.result()

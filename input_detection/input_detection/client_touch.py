@@ -5,14 +5,13 @@
 #          passing touch input from the user as a string and touch duration, additionally updating the image to reflect move direction
 #
 # Usage: First launch the service (see lab/file). Then you can run the client like this:
-#        ros2 run lab2task5 client
+#        ros2 run input_detection client_touch
 #
 # Acknowledgements: Used some code from ROS 2 Tutorials and MangDang's ROS git repo 
 #  https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html
 #  https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html#test-the-new-interfaces
-#  https://github.com/mangdangroboticsclub/mini_pupper_ros/blob/ros2-dev/mini_pupper_dance/mini_pupper_dance/dance_server.py
 #
-# Date: 11 May 2026
+# Date: 11 June 2026
 ########
 
 

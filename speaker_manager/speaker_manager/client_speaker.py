@@ -1,3 +1,18 @@
+########
+# Name: client_speaker.py
+#
+# Purpose: Speaker Manager Client. Sample client code which will communicate with the SpeakerManager service by
+#          handling speaker commands and playing music
+#
+# Usage: First launch the service (see lab/file). Then you can run the client like this:
+#        ros2 run speaker_manager client
+#
+# Acknowledgements: Used some code from ROS 2 Tutorials and MangDang's ROS git repo 
+#  https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html
+#  https://github.com/mangdangroboticsclub/mini_pupper_ros/tree/ros2-dev/mini_pupper_music 
+# Date: 11 June 2026
+########
+
 import json
 import os
 import shlex
@@ -16,6 +31,12 @@ import soundfile as sf
 
 from pupper_interfaces.srv import PlayMusic, StopMusic
 
+###
+# Name: Speaker Client
+#
+# Purpose: Handles speaker commands and plays music
+#
+######
 class SpeakerClient(Node):
 	def __init__(self):
 		super().__init__('speaker_client')
@@ -27,7 +48,7 @@ class SpeakerClient(Node):
 			10,
         )
 
-		# also connect to MusicPlayer to play music when needed
+		# also connect to MusicPlayer to play or stop music when needed
 		self.playMusicClient = self.create_client(PlayMusic, 'play_music')
 		while not self.playMusicClient.wait_for_service(timeout_sec=1.0):
 			self.get_logger().info('play music service not available, waiting again...')
@@ -43,12 +64,21 @@ class SpeakerClient(Node):
 		print('Speaker client listening on topic: speaker/command')
 		print('Play Music service client ready to call: play_music')
 		print('Stop Music service client ready to call: stop_music')
-
+	#####
+    # Name: command_callback
+    # Purpose: This will handle speaker commands from the client and play music.
+    # Arguments: msg - the message containing the speaker command
+    #####
 	def command_callback(self, msg: String):
 		sound = json.loads(msg.data)['sound']
 
 		self.apply_sound(sound)
 
+	#####
+    # Name: apply_sound
+    # Purpose: This will apply the specified sound command and play music.
+    # Arguments: sound - the sound command to be applied
+    #####
 	def apply_sound(self, sound: str):
 		print("Setting speaker to: %s" % sound)
 		soundFileStr = None
@@ -67,15 +97,22 @@ class SpeakerClient(Node):
 			print(f'Unknown sound command: {sound}')
 			return
 
+		# Prepare the play music service request
 		self.req_play = PlayMusic.Request()
 		self.req_play.file_name = soundFileStr
 		self.req_play.num_loops = float(num_loops)
 		print(f"Requesting to play music file: {self.req_play.file_name}")
+
+		# Call the play music service asynchronously and handle the response in a callback
 		future = self.playMusicClient.call_async(self.req_play)
 		self.pending_futures.add(future)
 		future.add_done_callback(self._handle_play_music_response)
 		return future
-
+	#####
+    # Name: _handle_play_music_response
+    # Purpose: This will handle the response from the play music service.
+    # Arguments: future - the future object containing the service response
+    #####
 	def _handle_play_music_response(self, future):
 		self.pending_futures.discard(future)
 		try:
@@ -84,6 +121,11 @@ class SpeakerClient(Node):
 		except Exception as exc:
 			self.get_logger().error(f'Play music service call failed: {exc}')
 
+	#####
+    # Name: _handle_stop_music_response
+    # Purpose: This will handle the response from the stop music service.
+    # Arguments: future - the future object containing the service response
+    #####
 	def _handle_stop_music_response(self, future):
 		self.pending_futures.discard(future)
 		try:
