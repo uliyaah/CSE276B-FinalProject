@@ -1,0 +1,14 @@
+{
+  "package_name": "pupper_interfaces",
+  "non_idl_tuples": [
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:msg/Command.msg",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:msg/DistractionEvent.msg",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:msg/TouchEvent.msg",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:srv/GoPupper.srv",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:srv/TouchPupper.srv",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:srv/CameraPupper.srv",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:srv/PlayMusic.srv",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:srv/StopMusic.srv",
+    "/home/ubuntu/ros2_ws/src/pupper_interfaces:srv/StateManagerCommand.srv"
+  ]
+}

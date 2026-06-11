@@ -1,0 +1,9 @@
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:msg/Command.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:msg/DistractionEvent.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:msg/TouchEvent.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:srv/GoPupper.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:srv/TouchPupper.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:srv/CameraPupper.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:srv/PlayMusic.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:srv/StopMusic.idl
+/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_adapter/pupper_interfaces:srv/StateManagerCommand.idl

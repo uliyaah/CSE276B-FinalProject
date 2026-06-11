@@ -1,0 +1,163 @@
+[0.000000] (-) TimerEvent: {}
+[0.001346] (speaker_manager) JobQueued: {'identifier': 'speaker_manager', 'dependencies': OrderedDict()}
+[0.002356] (speaker_manager) JobStarted: {'identifier': 'speaker_manager'}
+[0.098929] (-) TimerEvent: {}
+[0.200216] (-) TimerEvent: {}
+[0.301169] (-) TimerEvent: {}
+[0.404029] (-) TimerEvent: {}
+[0.505057] (-) TimerEvent: {}
+[0.605785] (-) TimerEvent: {}
+[0.706885] (-) TimerEvent: {}
+[0.807954] (-) TimerEvent: {}
+[0.908726] (-) TimerEvent: {}
+[1.009928] (-) TimerEvent: {}
+[1.111459] (-) TimerEvent: {}
+[1.212213] (-) TimerEvent: {}
+[1.312895] (-) TimerEvent: {}
+[1.413740] (-) TimerEvent: {}
+[1.514511] (-) TimerEvent: {}
+[1.617854] (-) TimerEvent: {}
+[1.718937] (-) TimerEvent: {}
+[1.819918] (-) TimerEvent: {}
+[1.921315] (-) TimerEvent: {}
+[2.022032] (-) TimerEvent: {}
+[2.122805] (-) TimerEvent: {}
+[2.223863] (-) TimerEvent: {}
+[2.324572] (-) TimerEvent: {}
+[2.425400] (-) TimerEvent: {}
+[2.526122] (-) TimerEvent: {}
+[2.626862] (-) TimerEvent: {}
+[2.727701] (-) TimerEvent: {}
+[2.828528] (-) TimerEvent: {}
+[2.929457] (-) TimerEvent: {}
+[3.030156] (-) TimerEvent: {}
+[3.134100] (-) TimerEvent: {}
+[3.235899] (-) TimerEvent: {}
+[3.337124] (-) TimerEvent: {}
+[3.438430] (-) TimerEvent: {}
+[3.539507] (-) TimerEvent: {}
+[3.641319] (-) TimerEvent: {}
+[3.742649] (-) TimerEvent: {}
+[3.843504] (-) TimerEvent: {}
+[3.944659] (-) TimerEvent: {}
+[4.045377] (-) TimerEvent: {}
+[4.146132] (-) TimerEvent: {}
+[4.246795] (-) TimerEvent: {}
+[4.347500] (-) TimerEvent: {}
+[4.448199] (-) TimerEvent: {}
+[4.549094] (-) TimerEvent: {}
+[4.650114] (-) TimerEvent: {}
+[4.751695] (-) TimerEvent: {}
+[4.852809] (-) TimerEvent: {}
+[4.953489] (-) TimerEvent: {}
+[5.054444] (-) TimerEvent: {}
+[5.155801] (-) TimerEvent: {}
+[5.256598] (-) TimerEvent: {}
+[5.357771] (-) TimerEvent: {}
+[5.458819] (-) TimerEvent: {}
+[5.559719] (-) TimerEvent: {}
+[5.660526] (-) TimerEvent: {}
+[5.761252] (-) TimerEvent: {}
+[5.862123] (-) TimerEvent: {}
+[5.964351] (-) TimerEvent: {}
+[6.065132] (-) TimerEvent: {}
+[6.165952] (-) TimerEvent: {}
+[6.267016] (-) TimerEvent: {}
+[6.368133] (-) TimerEvent: {}
+[6.470118] (-) TimerEvent: {}
+[6.570869] (-) TimerEvent: {}
+[6.672327] (-) TimerEvent: {}
+[6.773440] (-) TimerEvent: {}
+[6.875322] (-) TimerEvent: {}
+[6.976378] (-) TimerEvent: {}
+[7.077899] (-) TimerEvent: {}
+[7.178963] (-) TimerEvent: {}
+[7.231474] (speaker_manager) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', 'build/speaker_manager', 'build', '--build-base', '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build', 'install', '--record', '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/ubuntu/ros2_ws/src/speaker_manager', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ubuntu', 'SSH_CLIENT': '100.81.17.161 52348 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ubuntu/ros2_ws/install/pupper_interfaces/lib:/home/ubuntu/ros2_ws/install/mini_pupper_interfaces/lib:/home/ubuntu/ros2_ws/install/champ_base/lib:/home/ubuntu/ros2_ws/install/champ_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/ubuntu', 'OLDPWD': '/home/ubuntu/ros2_ws/src/speaker_manager/speaker_manager', 'SSH_TTY': '/dev/pts/10', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/ubuntu/ros2_ws/install:/home/ubuntu/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'ubuntu', 'IGN_GAZEBO_MODEL_PATH': '/opt/ros/humble/share', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '20', 'GAZEBO_MODEL_PATH': '/opt/ros/humble/share', 'ROS_LOCALHOST_ONLY': '1', 'PATH': '/home/ubuntu/ros2_ws/install/champ_base/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/home/ubuntu/ros2_ws/install/speaker_manager:/home/ubuntu/ros2_ws/install/pysrvcli:/home/ubuntu/ros2_ws/install/py_srvcli:/home/ubuntu/ros2_ws/install/main_manager:/home/ubuntu/ros2_ws/install/lab2task4:/home/ubuntu/ros2_ws/install/go_pupper_srv:/home/ubuntu/ros2_ws/install/display_manager:/home/ubuntu/ros2_ws/install/pupper_interfaces:/home/ubuntu/ros2_ws/install/pupper_behaviors:/home/ubuntu/ros2_ws/install/position_manager:/home/ubuntu/ros2_ws/install/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_interfaces:/home/ubuntu/ros2_ws/install/mini_pupper_driver:/home/ubuntu/ros2_ws/install/mini_pupper_description:/home/ubuntu/ros2_ws/install/mini_pupper_bringup:/home/ubuntu/ros2_ws/install/mini_pupper_2_description:/home/ubuntu/ros2_ws/install/ldlidar_stl_ros2:/home/ubuntu/ros2_ws/install/lab2task5:/home/ubuntu/ros2_ws/install/input_detection:/home/ubuntu/ros2_ws/install/champ_teleop:/home/ubuntu/ros2_ws/install/champ_bringup:/home/ubuntu/ros2_ws/install/champ_base:/home/ubuntu/ros2_ws/install/champ_msgs:/home/ubuntu/ros2_ws/install/champ_description:/home/ubuntu/ros2_ws/install/champ_config:/home/ubuntu/ros2_ws/install/champ:/home/ubuntu/ros2_ws/install/camera_basics:/home/ubuntu/install/speaker_manager:/home/ubuntu/install/mini_pupper_music:/home/ubuntu/install/lab2task5:/home/ubuntu/install/lab2task4:/home/ubuntu/install/input_detection:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/humble/share', 'GAZEBO_RESOURCE_PATH': '/opt/ros/humble/share', 'PWD': '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager', 'SSH_CONNECTION': '100.81.17.161 52348 137.110.215.119 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/prefix_override:/home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/speaker_manager/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/pysrvcli/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/py_srvcli/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/main_manager/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/lab2task4/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/go_pupper_srv/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/display_manager/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/pupper_interfaces/local/lib/python3.10/dist-packages:/home/ubuntu/ros2_ws/install/pupper_behaviors/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/position_manager/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/build/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_music/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/build/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_dance/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/mini_pupper_interfaces/local/lib/python3.10/dist-packages:/home/ubuntu/ros2_ws/build/mini_pupper_driver:/home/ubuntu/ros2_ws/install/mini_pupper_driver/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/lab2task5/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/input_detection/lib/python3.10/site-packages:/home/ubuntu/ros2_ws/install/champ_bringup/local/lib/python3.10/dist-packages:/home/ubuntu/ros2_ws/install/champ_msgs/local/lib/python3.10/dist-packages:/home/ubuntu/ros2_ws/install/camera_basics/lib/python3.10/site-packages:/home/ubuntu/install/speaker_manager/lib/python3.10/site-packages:/home/ubuntu/install/mini_pupper_music/lib/python3.10/site-packages:/home/ubuntu/install/lab2task5/lib/python3.10/site-packages:/home/ubuntu/install/lab2task4/lib/python3.10/site-packages:/home/ubuntu/install/input_detection/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/ubuntu/ros2_ws/install/pupper_interfaces:/home/ubuntu/ros2_ws/install/mini_pupper_interfaces:/home/ubuntu/ros2_ws/install/mini_pupper_description:/home/ubuntu/ros2_ws/install/mini_pupper_bringup:/home/ubuntu/ros2_ws/install/mini_pupper_2_description:/home/ubuntu/ros2_ws/install/ldlidar_stl_ros2:/home/ubuntu/ros2_ws/install/champ_teleop:/home/ubuntu/ros2_ws/install/champ_bringup:/home/ubuntu/ros2_ws/install/champ_base:/home/ubuntu/ros2_ws/install/champ_msgs:/home/ubuntu/ros2_ws/install/champ_description:/home/ubuntu/ros2_ws/install/champ_config:/home/ubuntu/ros2_ws/install/champ'}, 'shell': False}
+[7.279145] (-) TimerEvent: {}
+[7.379948] (-) TimerEvent: {}
+[7.480776] (-) TimerEvent: {}
+[7.582693] (-) TimerEvent: {}
+[7.685604] (-) TimerEvent: {}
+[7.789963] (-) TimerEvent: {}
+[7.891123] (-) TimerEvent: {}
+[7.993561] (-) TimerEvent: {}
+[8.096317] (-) TimerEvent: {}
+[8.201882] (-) TimerEvent: {}
+[8.303439] (-) TimerEvent: {}
+[8.407386] (-) TimerEvent: {}
+[8.508911] (-) TimerEvent: {}
+[8.609890] (-) TimerEvent: {}
+[8.710991] (-) TimerEvent: {}
+[8.812632] (-) TimerEvent: {}
+[8.914651] (-) TimerEvent: {}
+[9.016190] (-) TimerEvent: {}
+[9.116947] (-) TimerEvent: {}
+[9.218024] (-) TimerEvent: {}
+[9.319882] (-) TimerEvent: {}
+[9.421515] (-) TimerEvent: {}
+[9.522362] (-) TimerEvent: {}
+[9.623141] (-) TimerEvent: {}
+[9.723886] (-) TimerEvent: {}
+[9.824698] (-) TimerEvent: {}
+[9.870357] (speaker_manager) StdoutLine: {'line': b'running egg_info\n'}
+[9.874547] (speaker_manager) StdoutLine: {'line': b'creating build/speaker_manager/speaker_manager.egg-info\n'}
+[9.877838] (speaker_manager) StdoutLine: {'line': b'writing build/speaker_manager/speaker_manager.egg-info/PKG-INFO\n'}
+[9.880242] (speaker_manager) StdoutLine: {'line': b'writing dependency_links to build/speaker_manager/speaker_manager.egg-info/dependency_links.txt\n'}
+[9.881132] (speaker_manager) StdoutLine: {'line': b'writing entry points to build/speaker_manager/speaker_manager.egg-info/entry_points.txt\n'}
+[9.881675] (speaker_manager) StdoutLine: {'line': b'writing requirements to build/speaker_manager/speaker_manager.egg-info/requires.txt\n'}
+[9.882207] (speaker_manager) StdoutLine: {'line': b'writing top-level names to build/speaker_manager/speaker_manager.egg-info/top_level.txt\n'}
+[9.882760] (speaker_manager) StdoutLine: {'line': b"writing manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'\n"}
+[9.892867] (speaker_manager) StdoutLine: {'line': b"reading manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'\n"}
+[9.897715] (speaker_manager) StdoutLine: {'line': b"writing manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'\n"}
+[9.898739] (speaker_manager) StdoutLine: {'line': b'running build\n'}
+[9.899418] (speaker_manager) StdoutLine: {'line': b'running build_py\n'}
+[9.900326] (speaker_manager) StdoutLine: {'line': b'creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build\n'}
+[9.901609] (speaker_manager) StdoutLine: {'line': b'creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib\n'}
+[9.902507] (speaker_manager) StdoutLine: {'line': b'creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager\n'}
+[9.903833] (speaker_manager) StdoutLine: {'line': b'copying speaker_manager/__init__.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager\n'}
+[9.904453] (speaker_manager) StdoutLine: {'line': b'copying speaker_manager/music_player.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager\n'}
+[9.905769] (speaker_manager) StdoutLine: {'line': b'copying speaker_manager/music_server.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager\n'}
+[9.906783] (speaker_manager) StdoutLine: {'line': b'copying speaker_manager/client_speaker.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager\n'}
+[9.907330] (speaker_manager) StdoutLine: {'line': b'copying speaker_manager/mock_speaker_publisher.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager\n'}
+[9.908922] (speaker_manager) StdoutLine: {'line': b'running install\n'}
+[9.910645] (speaker_manager) StdoutLine: {'line': b'running install_lib\n'}
+[9.915157] (speaker_manager) StdoutLine: {'line': b'creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager\n'}
+[9.916893] (speaker_manager) StdoutLine: {'line': b'copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/__init__.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager\n'}
+[9.918224] (speaker_manager) StdoutLine: {'line': b'copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/music_player.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager\n'}
+[9.919973] (speaker_manager) StdoutLine: {'line': b'copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/music_server.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager\n'}
+[9.921368] (speaker_manager) StdoutLine: {'line': b'copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/client_speaker.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager\n'}
+[9.922430] (speaker_manager) StdoutLine: {'line': b'copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/mock_speaker_publisher.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager\n'}
+[9.924830] (-) TimerEvent: {}
+[9.926295] (speaker_manager) StdoutLine: {'line': b'byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/__init__.py to __init__.cpython-310.pyc\n'}
+[9.928366] (speaker_manager) StdoutLine: {'line': b'byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/music_player.py to music_player.cpython-310.pyc\n'}
+[9.931674] (speaker_manager) StdoutLine: {'line': b'byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/music_server.py to music_server.cpython-310.pyc\n'}
+[9.951364] (speaker_manager) StdoutLine: {'line': b'byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/client_speaker.py to client_speaker.cpython-310.pyc\n'}
+[9.962197] (speaker_manager) StdoutLine: {'line': b'byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/mock_speaker_publisher.py to mock_speaker_publisher.cpython-310.pyc\n'}
+[9.966207] (speaker_manager) StdoutLine: {'line': b'running install_data\n'}
+[9.967216] (speaker_manager) StdoutLine: {'line': b'copying package.xml -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager\n'}
+[9.968377] (speaker_manager) StdoutLine: {'line': b'creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource\n'}
+[9.969277] (speaker_manager) StdoutLine: {'line': b'copying resource/growl.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource\n'}
+[9.996622] (speaker_manager) StdoutLine: {'line': b'copying resource/robot1.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource\n'}
+[10.025071] (-) TimerEvent: {}
+[10.124826] (speaker_manager) StdoutLine: {'line': b'copying resource/bark.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource\n'}
+[10.125648] (-) TimerEvent: {}
+[10.132916] (speaker_manager) StdoutLine: {'line': b'copying resource/robot1.mp3 -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource\n'}
+[10.151701] (speaker_manager) StdoutLine: {'line': b'copying resource/speaker_manager -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource\n'}
+[10.152766] (speaker_manager) StdoutLine: {'line': b'creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/audio\n'}
+[10.153554] (speaker_manager) StdoutLine: {'line': b'copying launch/music.launch.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager\n'}
+[10.154420] (speaker_manager) StdoutLine: {'line': b'running install_egg_info\n'}
+[10.178838] (speaker_manager) StdoutLine: {'line': b'Copying build/speaker_manager/speaker_manager.egg-info to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager-0.0.0-py3.10.egg-info\n'}
+[10.188894] (speaker_manager) StdoutLine: {'line': b'running install_scripts\n'}
+[10.225795] (-) TimerEvent: {}
+[10.326521] (-) TimerEvent: {}
+[10.334984] (speaker_manager) StdoutLine: {'line': b'Installing client script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager\n'}
+[10.336601] (speaker_manager) StdoutLine: {'line': b'Installing music_server script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager\n'}
+[10.338200] (speaker_manager) StdoutLine: {'line': b'Installing service script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager\n'}
+[10.339570] (speaker_manager) StdoutLine: {'line': b"writing list of installed files to '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log'\n"}
+[10.427056] (-) TimerEvent: {}
+[10.528786] (-) TimerEvent: {}
+[10.585555] (speaker_manager) CommandEnded: {'returncode': 0}
+[10.629963] (-) TimerEvent: {}
+[10.737164] (-) TimerEvent: {}
+[10.763455] (speaker_manager) JobEnded: {'identifier': 'speaker_manager', 'rc': 0}
+[10.771306] (-) EventReactorShutdown: {}

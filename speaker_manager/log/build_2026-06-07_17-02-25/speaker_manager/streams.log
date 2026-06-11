@@ -1,0 +1,52 @@
+[7.233s] Invoking command in '/home/ubuntu/ros2_ws/src/speaker_manager': PYTHONPATH=/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/prefix_override:/home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/speaker_manager build --build-base /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build install --record /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log --single-version-externally-managed install_data
+[9.869s] running egg_info
+[9.874s] creating build/speaker_manager/speaker_manager.egg-info
+[9.878s] writing build/speaker_manager/speaker_manager.egg-info/PKG-INFO
+[9.878s] writing dependency_links to build/speaker_manager/speaker_manager.egg-info/dependency_links.txt
+[9.879s] writing entry points to build/speaker_manager/speaker_manager.egg-info/entry_points.txt
+[9.880s] writing requirements to build/speaker_manager/speaker_manager.egg-info/requires.txt
+[9.880s] writing top-level names to build/speaker_manager/speaker_manager.egg-info/top_level.txt
+[9.881s] writing manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+[9.892s] reading manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+[9.896s] writing manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+[9.897s] running build
+[9.898s] running build_py
+[9.899s] creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build
+[9.900s] creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib
+[9.901s] creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+[9.902s] copying speaker_manager/__init__.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+[9.903s] copying speaker_manager/music_player.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+[9.904s] copying speaker_manager/music_server.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+[9.905s] copying speaker_manager/client_speaker.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+[9.905s] copying speaker_manager/mock_speaker_publisher.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+[9.907s] running install
+[9.909s] running install_lib
+[9.914s] creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+[9.915s] copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/__init__.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+[9.917s] copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/music_player.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+[9.919s] copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/music_server.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+[9.920s] copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/client_speaker.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+[9.921s] copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/mock_speaker_publisher.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+[9.925s] byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/__init__.py to __init__.cpython-310.pyc
+[9.928s] byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/music_player.py to music_player.cpython-310.pyc
+[9.931s] byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/music_server.py to music_server.cpython-310.pyc
+[9.950s] byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/client_speaker.py to client_speaker.cpython-310.pyc
+[9.960s] byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/mock_speaker_publisher.py to mock_speaker_publisher.cpython-310.pyc
+[9.964s] running install_data
+[9.965s] copying package.xml -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager
+[9.967s] creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+[9.967s] copying resource/growl.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+[9.995s] copying resource/robot1.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+[10.123s] copying resource/bark.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+[10.131s] copying resource/robot1.mp3 -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+[10.150s] copying resource/speaker_manager -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+[10.151s] creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/audio
+[10.152s] copying launch/music.launch.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager
+[10.152s] running install_egg_info
+[10.177s] Copying build/speaker_manager/speaker_manager.egg-info to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager-0.0.0-py3.10.egg-info
+[10.187s] running install_scripts
+[10.333s] Installing client script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+[10.335s] Installing music_server script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+[10.336s] Installing service script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+[10.340s] writing list of installed files to '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log'
+[10.584s] Invoked command in '/home/ubuntu/ros2_ws/src/speaker_manager' returned '0': PYTHONPATH=/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/prefix_override:/home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/speaker_manager build --build-base /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build install --record /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log --single-version-externally-managed install_data

@@ -1,0 +1,4 @@
+# generated from rosidl_cmake/cmake/rosidl_cmake-extras.cmake.in
+
+set(pupper_interfaces_IDL_FILES "msg/Command.idl;msg/DistractionEvent.idl;msg/TouchEvent.idl;srv/GoPupper.idl;srv/TouchPupper.idl;srv/CameraPupper.idl;srv/PlayMusic.idl;srv/StopMusic.idl;srv/StateManagerCommand.idl")
+set(pupper_interfaces_INTERFACE_FILES "msg/Command.msg;msg/DistractionEvent.msg;msg/TouchEvent.msg;srv/GoPupper.srv;srv/GoPupper_Request.msg;srv/GoPupper_Response.msg;srv/TouchPupper.srv;srv/TouchPupper_Request.msg;srv/TouchPupper_Response.msg;srv/CameraPupper.srv;srv/CameraPupper_Request.msg;srv/CameraPupper_Response.msg;srv/PlayMusic.srv;srv/PlayMusic_Request.msg;srv/PlayMusic_Response.msg;srv/StopMusic.srv;srv/StopMusic_Request.msg;srv/StopMusic_Response.msg;srv/StateManagerCommand.srv;srv/StateManagerCommand_Request.msg;srv/StateManagerCommand_Response.msg")

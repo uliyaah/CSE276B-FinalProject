@@ -1,0 +1,486 @@
+[0.065s] Invoking command in '/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/ros2_ws/install/speaker_manager:/home/ubuntu/ros2_ws/install/py_srvcli:/home/ubuntu/ros2_ws/install/main_manager:/home/ubuntu/ros2_ws/install/display_manager:/home/ubuntu/ros2_ws/install/pupper_behaviors:/home/ubuntu/ros2_ws/install/position_manager:/home/ubuntu/ros2_ws/install/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_driver:/home/ubuntu/ros2_ws/install/input_detection:/home/ubuntu/ros2_ws/install/camera_basics:/opt/ros/humble /usr/bin/cmake /home/ubuntu/ros2_ws/src/pupper_interfaces -DCMAKE_INSTALL_PREFIX=/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces
+[0.422s] -- The C compiler identification is GNU 11.4.0
+[0.772s] -- The CXX compiler identification is GNU 11.4.0
+[0.814s] -- Detecting C compiler ABI info
+[1.195s] -- Detecting C compiler ABI info - done
+[1.224s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.231s] -- Detecting C compile features
+[1.233s] -- Detecting C compile features - done
+[1.247s] -- Detecting CXX compiler ABI info
+[1.688s] -- Detecting CXX compiler ABI info - done
+[1.717s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.718s] -- Detecting CXX compile features
+[1.720s] -- Detecting CXX compile features - done
+[1.788s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.031s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[4.247s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[4.325s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.506s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[5.208s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.714s] -- Found geometry_msgs: 4.2.3 (/opt/ros/humble/share/geometry_msgs/cmake)
+[8.737s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[10.451s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[12.596s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[12.779s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[12.834s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[13.020s] -- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[13.021s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[13.022s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[13.022s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+[13.196s] -- Found PythonExtra: .so  
+[13.673s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[14.234s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[14.237s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_generator_c>;$<BUILD_INTERFACE:/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_typesupport_fastrtps_c>;$<BUILD_INTERFACE:/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_typesupport_introspection_c>;$<BUILD_INTERFACE:/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_generator_cpp>;$<BUILD_INTERFACE:/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_typesupport_fastrtps_cpp>;$<BUILD_INTERFACE:/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_typesupport_introspection_cpp>;/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_generator_c;/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces/rosidl_generator_py
+[14.238s] -- Configured cppcheck exclude dirs and/or files: 
+[14.261s] -- Added test 'flake8' to check Python code syntax and style conventions
+[14.301s] -- Added test 'lint_cmake' to check CMake code style
+[14.325s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[14.466s] -- Added test 'uncrustify' to check C / C++ code style
+[14.467s] -- Configured uncrustify additional arguments: 
+[14.491s] -- Added test 'xmllint' to check XML markup files
+[14.520s] -- Configuring done
+[14.825s] -- Generating done
+[14.843s] -- Build files have been written to: /home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces
+[14.890s] Invoked command in '/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/ros2_ws/install/speaker_manager:/home/ubuntu/ros2_ws/install/py_srvcli:/home/ubuntu/ros2_ws/install/main_manager:/home/ubuntu/ros2_ws/install/display_manager:/home/ubuntu/ros2_ws/install/pupper_behaviors:/home/ubuntu/ros2_ws/install/position_manager:/home/ubuntu/ros2_ws/install/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_driver:/home/ubuntu/ros2_ws/install/input_detection:/home/ubuntu/ros2_ws/install/camera_basics:/opt/ros/humble /usr/bin/cmake /home/ubuntu/ros2_ws/src/pupper_interfaces -DCMAKE_INSTALL_PREFIX=/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces
+[14.901s] Invoking command in '/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/ros2_ws/install/speaker_manager:/home/ubuntu/ros2_ws/install/py_srvcli:/home/ubuntu/ros2_ws/install/main_manager:/home/ubuntu/ros2_ws/install/display_manager:/home/ubuntu/ros2_ws/install/pupper_behaviors:/home/ubuntu/ros2_ws/install/position_manager:/home/ubuntu/ros2_ws/install/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_driver:/home/ubuntu/ros2_ws/install/input_detection:/home/ubuntu/ros2_ws/install/camera_basics:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces -- -j4 -l4
+[15.128s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[15.188s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[15.258s] [  2%] Built target ament_cmake_python_copy_pupper_interfaces
+[17.320s] running egg_info
+[17.322s] creating pupper_interfaces.egg-info
+[17.323s] writing pupper_interfaces.egg-info/PKG-INFO
+[17.325s] writing dependency_links to pupper_interfaces.egg-info/dependency_links.txt
+[17.327s] writing top-level names to pupper_interfaces.egg-info/top_level.txt
+[17.329s] writing manifest file 'pupper_interfaces.egg-info/SOURCES.txt'
+[17.339s] reading manifest file 'pupper_interfaces.egg-info/SOURCES.txt'
+[17.342s] writing manifest file 'pupper_interfaces.egg-info/SOURCES.txt'
+[17.503s] [  2%] Built target ament_cmake_python_build_pupper_interfaces_egg
+[20.072s] [  2%] Built target pupper_interfaces__cpp
+[20.142s] [  3%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[20.153s] [  4%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[20.178s] [  5%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[22.728s] [  6%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/msg/detail/command__functions.c.o[0m
+[23.229s] [  7%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/msg/detail/distraction_event__functions.c.o[0m
+[23.757s] [  8%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/msg/detail/touch_event__functions.c.o[0m
+[24.076s] [  9%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/srv/detail/go_pupper__functions.c.o[0m
+[24.082s] [ 10%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/msg/command__type_support.cpp.o[0m
+[25.098s] [ 11%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/srv/detail/touch_pupper__functions.c.o[0m
+[25.717s] [ 12%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/msg/detail/dds_fastrtps/command__type_support.cpp.o[0m
+[26.092s] [ 13%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/msg/detail/command__type_support.cpp.o[0m
+[26.112s] [ 14%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/srv/detail/camera_pupper__functions.c.o[0m
+[26.248s] [ 15%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/msg/distraction_event__type_support.cpp.o[0m
+[26.550s] [ 16%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/srv/detail/play_music__functions.c.o[0m
+[26.976s] [ 17%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/srv/detail/stop_music__functions.c.o[0m
+[27.458s] [ 18%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pupper_interfaces/srv/detail/state_manager_command__functions.c.o[0m
+[27.888s] [ 20%] [32m[1mLinking C shared library libpupper_interfaces__rosidl_generator_c.so[0m
+[28.170s] [ 20%] Built target pupper_interfaces__rosidl_generator_c
+[28.264s] [ 21%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/msg/detail/distraction_event__type_support.cpp.o[0m
+[28.435s] [ 22%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/msg/touch_event__type_support.cpp.o[0m
+[28.848s] [ 23%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/msg/detail/dds_fastrtps/distraction_event__type_support.cpp.o[0m
+[30.244s] [ 24%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/srv/go_pupper__type_support.cpp.o[0m
+[31.160s] [ 25%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/msg/detail/touch_event__type_support.cpp.o[0m
+[31.244s] [ 26%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/srv/touch_pupper__type_support.cpp.o[0m
+[31.847s] [ 27%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/msg/detail/dds_fastrtps/touch_event__type_support.cpp.o[0m
+[32.560s] [ 28%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/srv/detail/dds_fastrtps/go_pupper__type_support.cpp.o[0m
+[33.327s] [ 29%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/srv/camera_pupper__type_support.cpp.o[0m
+[34.694s] [ 30%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/srv/detail/dds_fastrtps/touch_pupper__type_support.cpp.o[0m
+[34.802s] [ 31%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/srv/detail/go_pupper__type_support.cpp.o[0m
+[36.037s] [ 32%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/srv/play_music__type_support.cpp.o[0m
+[36.462s] [ 33%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[37.750s] [ 34%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/srv/detail/touch_pupper__type_support.cpp.o[0m
+[38.844s] [ 35%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/srv/stop_music__type_support.cpp.o[0m
+[39.004s] [ 36%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/srv/detail/dds_fastrtps/camera_pupper__type_support.cpp.o[0m
+[40.403s] [ 37%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/srv/detail/camera_pupper__type_support.cpp.o[0m
+[41.829s] [ 38%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pupper_interfaces/srv/state_manager_command__type_support.cpp.o[0m
+[41.968s] [ 40%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/msg/detail/command__type_support_c.cpp.o[0m
+[42.402s] [ 41%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/srv/detail/dds_fastrtps/play_music__type_support.cpp.o[0m
+[44.206s] [ 42%] [32m[1mLinking CXX shared library libpupper_interfaces__rosidl_typesupport_cpp.so[0m
+[44.288s] [ 43%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/msg/detail/distraction_event__type_support_c.cpp.o[0m
+[44.517s] [ 43%] Built target pupper_interfaces__rosidl_typesupport_cpp
+[44.572s] [ 44%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/msg/detail/touch_event__type_support_c.cpp.o[0m
+[44.752s] [ 45%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/srv/detail/play_music__type_support.cpp.o[0m
+[46.420s] [ 46%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/srv/detail/dds_fastrtps/stop_music__type_support.cpp.o[0m
+[47.026s] [ 47%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/srv/detail/stop_music__type_support.cpp.o[0m
+[47.130s] [ 48%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/srv/detail/go_pupper__type_support_c.cpp.o[0m
+[48.268s] [ 49%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/srv/detail/touch_pupper__type_support_c.cpp.o[0m
+[50.167s] [ 50%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pupper_interfaces/srv/detail/state_manager_command__type_support.cpp.o[0m
+[50.428s] [ 51%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/srv/detail/camera_pupper__type_support_c.cpp.o[0m
+[50.575s] [ 52%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pupper_interfaces/srv/detail/dds_fastrtps/state_manager_command__type_support.cpp.o[0m
+[50.891s] [ 53%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[53.640s] [ 54%] [32m[1mLinking CXX shared library libpupper_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[54.017s] [ 55%] [32m[1mLinking CXX shared library libpupper_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[54.154s] [ 55%] Built target pupper_interfaces__rosidl_typesupport_fastrtps_cpp
+[54.195s] [ 56%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/srv/detail/play_music__type_support_c.cpp.o[0m
+[54.216s] [ 57%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/srv/detail/stop_music__type_support_c.cpp.o[0m
+[54.608s] [ 57%] Built target pupper_interfaces__rosidl_typesupport_introspection_cpp
+[54.657s] [ 58%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pupper_interfaces/srv/detail/state_manager_command__type_support_c.cpp.o[0m
+[56.182s] [ 60%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/msg/detail/command__type_support.c.o[0m
+[56.471s] [ 61%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/msg/detail/distraction_event__type_support.c.o[0m
+[56.749s] [ 62%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/msg/detail/touch_event__type_support.c.o[0m
+[57.024s] [ 63%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/srv/detail/go_pupper__type_support.c.o[0m
+[57.313s] [ 64%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/srv/detail/touch_pupper__type_support.c.o[0m
+[57.397s] [ 65%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/srv/detail/camera_pupper__type_support.c.o[0m
+[57.527s] [ 66%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/srv/detail/play_music__type_support.c.o[0m
+[57.595s] [ 67%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/srv/detail/stop_music__type_support.c.o[0m
+[57.722s] [ 68%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pupper_interfaces/srv/detail/state_manager_command__type_support.c.o[0m
+[57.802s] [ 69%] [32m[1mLinking CXX shared library libpupper_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[57.911s] [ 70%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[57.990s] [ 71%] [32m[1mLinking C shared library libpupper_interfaces__rosidl_typesupport_introspection_c.so[0m
+[58.217s] [ 71%] Built target pupper_interfaces__rosidl_typesupport_introspection_c
+[58.364s] [ 71%] Built target pupper_interfaces__rosidl_typesupport_fastrtps_c
+[60.585s] [ 72%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/msg/distraction_event__type_support.cpp.o[0m
+[60.604s] [ 74%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/msg/command__type_support.cpp.o[0m
+[60.605s] [ 74%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/srv/go_pupper__type_support.cpp.o[0m
+[60.619s] [ 75%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/msg/touch_event__type_support.cpp.o[0m
+[60.808s] [ 76%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/srv/touch_pupper__type_support.cpp.o[0m
+[60.835s] [ 77%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/srv/camera_pupper__type_support.cpp.o[0m
+[60.889s] [ 78%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/srv/play_music__type_support.cpp.o[0m
+[61.002s] [ 80%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/srv/stop_music__type_support.cpp.o[0m
+[61.029s] [ 81%] [32mBuilding CXX object CMakeFiles/pupper_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pupper_interfaces/srv/state_manager_command__type_support.cpp.o[0m
+[61.253s] [ 82%] [32m[1mLinking CXX shared library libpupper_interfaces__rosidl_typesupport_c.so[0m
+[61.470s] [ 82%] Built target pupper_interfaces__rosidl_typesupport_c
+[61.582s] [ 82%] Built target pupper_interfaces
+[61.706s] [ 83%] [34m[1mGenerating Python code for ROS interfaces[0m
+[68.854s] [ 83%] Built target pupper_interfaces__py
+[68.974s] [ 84%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/msg/_command_s.c.o[0m
+[68.982s] [ 85%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/msg/_touch_event_s.c.o[0m
+[69.006s] [ 86%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/srv/_go_pupper_s.c.o[0m
+[69.010s] [ 87%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/msg/_distraction_event_s.c.o[0m
+[69.776s] [ 88%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/srv/_touch_pupper_s.c.o[0m
+[69.789s] [ 89%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/srv/_camera_pupper_s.c.o[0m
+[69.799s] [ 90%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/srv/_play_music_s.c.o[0m
+[69.883s] [ 91%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/srv/_stop_music_s.c.o[0m
+[70.493s] [ 92%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pupper_interfaces/srv/_state_manager_command_s.c.o[0m
+[71.103s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/pupper_interfaces/libpupper_interfaces__rosidl_generator_py.so[0m
+[71.364s] [ 93%] Built target pupper_interfaces__rosidl_generator_py
+[71.488s] [ 94%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/pupper_interfaces/_pupper_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[71.508s] [ 95%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/pupper_interfaces/_pupper_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[71.527s] [ 96%] [32mBuilding C object CMakeFiles/pupper_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/pupper_interfaces/_pupper_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[72.414s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so[0m
+[72.416s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so[0m
+[72.759s] [ 98%] Built target pupper_interfaces__rosidl_typesupport_introspection_c__pyext
+[72.775s] [ 98%] Built target pupper_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[72.849s] [100%] [32m[1mLinking C shared library rosidl_generator_py/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so[0m
+[73.091s] [100%] Built target pupper_interfaces__rosidl_typesupport_c__pyext
+[73.153s] Invoked command in '/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/ros2_ws/install/speaker_manager:/home/ubuntu/ros2_ws/install/py_srvcli:/home/ubuntu/ros2_ws/install/main_manager:/home/ubuntu/ros2_ws/install/display_manager:/home/ubuntu/ros2_ws/install/pupper_behaviors:/home/ubuntu/ros2_ws/install/position_manager:/home/ubuntu/ros2_ws/install/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_driver:/home/ubuntu/ros2_ws/install/input_detection:/home/ubuntu/ros2_ws/install/camera_basics:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces -- -j4 -l4
+[74.921s] Invoking command in '/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/ros2_ws/install/speaker_manager:/home/ubuntu/ros2_ws/install/py_srvcli:/home/ubuntu/ros2_ws/install/main_manager:/home/ubuntu/ros2_ws/install/display_manager:/home/ubuntu/ros2_ws/install/pupper_behaviors:/home/ubuntu/ros2_ws/install/position_manager:/home/ubuntu/ros2_ws/install/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_driver:/home/ubuntu/ros2_ws/install/input_detection:/home/ubuntu/ros2_ws/install/camera_basics:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces
+[74.956s] -- Install configuration: ""
+[74.957s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/ament_index/resource_index/rosidl_interfaces/pupper_interfaces
+[74.959s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces
+[74.960s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv
+[74.960s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/go_pupper.h
+[74.962s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/touch_pupper.h
+[74.963s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/state_manager_command.h
+[74.965s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/stop_music.h
+[74.966s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/play_music.h
+[74.967s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail
+[74.968s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__functions.h
+[74.970s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__type_support.h
+[74.971s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__type_support.h
+[74.973s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__struct.h
+[74.974s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__functions.c
+[74.976s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__functions.c
+[74.977s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__functions.h
+[74.979s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__struct.h
+[74.980s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__functions.c
+[74.982s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__functions.c
+[74.984s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__type_support.h
+[74.985s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__type_support.h
+[74.987s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__struct.h
+[74.988s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__struct.h
+[74.990s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__type_support.h
+[74.991s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__struct.h
+[74.993s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__functions.h
+[74.994s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__functions.c
+[74.996s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__functions.h
+[74.998s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__type_support.h
+[74.999s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__functions.h
+[75.000s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__functions.c
+[75.002s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__struct.h
+[75.004s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__functions.h
+[75.005s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/camera_pupper.h
+[75.006s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg
+[75.007s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/touch_event.h
+[75.009s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/command.h
+[75.010s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/distraction_event.h
+[75.011s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail
+[75.012s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__functions.c
+[75.014s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__struct.h
+[75.015s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__functions.h
+[75.017s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__functions.c
+[75.018s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__functions.h
+[75.020s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__type_support.h
+[75.021s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__type_support.h
+[75.023s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__struct.h
+[75.024s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__type_support.h
+[75.026s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__functions.c
+[75.027s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__struct.h
+[75.029s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__functions.h
+[75.030s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/rosidl_generator_c__visibility_control.h
+[75.032s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/library_path.sh
+[75.034s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/library_path.dsv
+[75.036s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_generator_c.so
+[75.040s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_generator_c.so" to ""
+[75.040s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces
+[75.041s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv
+[75.042s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail
+[75.042s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__rosidl_typesupport_fastrtps_c.h
+[75.043s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__rosidl_typesupport_fastrtps_c.h
+[75.045s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__rosidl_typesupport_fastrtps_c.h
+[75.046s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__rosidl_typesupport_fastrtps_c.h
+[75.048s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__rosidl_typesupport_fastrtps_c.h
+[75.049s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__rosidl_typesupport_fastrtps_c.h
+[75.051s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg
+[75.052s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[75.053s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail
+[75.054s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__rosidl_typesupport_fastrtps_c.h
+[75.055s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__rosidl_typesupport_fastrtps_c.h
+[75.057s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__rosidl_typesupport_fastrtps_c.h
+[75.059s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_fastrtps_c.so
+[75.063s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[75.063s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces
+[75.064s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv
+[75.064s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail
+[75.065s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__type_support.c
+[75.066s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__type_support.c
+[75.068s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__type_support.c
+[75.070s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__rosidl_typesupport_introspection_c.h
+[75.071s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__rosidl_typesupport_introspection_c.h
+[75.073s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__rosidl_typesupport_introspection_c.h
+[75.074s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__type_support.c
+[75.076s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__rosidl_typesupport_introspection_c.h
+[75.078s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__type_support.c
+[75.079s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__rosidl_typesupport_introspection_c.h
+[75.081s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__type_support.c
+[75.083s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__rosidl_typesupport_introspection_c.h
+[75.084s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg
+[75.085s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail
+[75.085s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__rosidl_typesupport_introspection_c.h
+[75.087s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__rosidl_typesupport_introspection_c.h
+[75.089s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__type_support.c
+[75.090s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__type_support.c
+[75.092s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__rosidl_typesupport_introspection_c.h
+[75.093s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__type_support.c
+[75.095s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[75.097s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_introspection_c.so
+[75.100s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[75.101s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_c.so
+[75.104s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_c.so" to ""
+[75.104s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces
+[75.105s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv
+[75.105s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/touch_pupper.hpp
+[75.107s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/stop_music.hpp
+[75.108s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/play_music.hpp
+[75.109s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/state_manager_command.hpp
+[75.111s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/camera_pupper.hpp
+[75.112s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail
+[75.113s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__builder.hpp
+[75.115s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__struct.hpp
+[75.116s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__struct.hpp
+[75.118s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__struct.hpp
+[75.119s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__traits.hpp
+[75.121s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__builder.hpp
+[75.122s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__traits.hpp
+[75.124s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__builder.hpp
+[75.125s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__builder.hpp
+[75.126s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__builder.hpp
+[75.128s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__struct.hpp
+[75.130s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__builder.hpp
+[75.131s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__struct.hpp
+[75.132s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__traits.hpp
+[75.134s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__struct.hpp
+[75.135s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__traits.hpp
+[75.137s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__traits.hpp
+[75.138s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__traits.hpp
+[75.140s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/go_pupper.hpp
+[75.141s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg
+[75.142s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/command.hpp
+[75.143s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/distraction_event.hpp
+[75.144s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/touch_event.hpp
+[75.146s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail
+[75.146s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__struct.hpp
+[75.148s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__traits.hpp
+[75.149s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__traits.hpp
+[75.151s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__builder.hpp
+[75.152s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__builder.hpp
+[75.154s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__struct.hpp
+[75.155s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__builder.hpp
+[75.157s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__struct.hpp
+[75.158s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__traits.hpp
+[75.160s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces
+[75.160s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv
+[75.161s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail
+[75.161s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__rosidl_typesupport_fastrtps_cpp.hpp
+[75.163s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__rosidl_typesupport_fastrtps_cpp.hpp
+[75.165s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__rosidl_typesupport_fastrtps_cpp.hpp
+[75.167s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__rosidl_typesupport_fastrtps_cpp.hpp
+[75.168s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/dds_fastrtps
+[75.169s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__rosidl_typesupport_fastrtps_cpp.hpp
+[75.171s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__rosidl_typesupport_fastrtps_cpp.hpp
+[75.172s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg
+[75.173s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[75.174s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail
+[75.175s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__rosidl_typesupport_fastrtps_cpp.hpp
+[75.177s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__rosidl_typesupport_fastrtps_cpp.hpp
+[75.178s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__rosidl_typesupport_fastrtps_cpp.hpp
+[75.180s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/dds_fastrtps
+[75.181s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[75.186s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[75.187s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces
+[75.187s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv
+[75.187s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail
+[75.188s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__type_support.cpp
+[75.189s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__type_support.cpp
+[75.191s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__rosidl_typesupport_introspection_cpp.hpp
+[75.193s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__type_support.cpp
+[75.194s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__rosidl_typesupport_introspection_cpp.hpp
+[75.196s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__type_support.cpp
+[75.198s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/play_music__type_support.cpp
+[75.199s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/go_pupper__rosidl_typesupport_introspection_cpp.hpp
+[75.201s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/camera_pupper__rosidl_typesupport_introspection_cpp.hpp
+[75.202s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/touch_pupper__rosidl_typesupport_introspection_cpp.hpp
+[75.204s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/state_manager_command__rosidl_typesupport_introspection_cpp.hpp
+[75.206s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/srv/detail/stop_music__type_support.cpp
+[75.208s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg
+[75.208s] -- Up-to-date: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail
+[75.208s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__type_support.cpp
+[75.210s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__rosidl_typesupport_introspection_cpp.hpp
+[75.212s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/distraction_event__rosidl_typesupport_introspection_cpp.hpp
+[75.214s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/touch_event__type_support.cpp
+[75.215s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__rosidl_typesupport_introspection_cpp.hpp
+[75.216s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/include/pupper_interfaces/pupper_interfaces/msg/detail/command__type_support.cpp
+[75.218s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_introspection_cpp.so
+[75.222s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[75.223s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_cpp.so
+[75.226s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_typesupport_cpp.so" to ""
+[75.227s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/pythonpath.sh
+[75.228s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/pythonpath.dsv
+[75.230s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces-0.0.0-py3.10.egg-info
+[75.231s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[75.232s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[75.234s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[75.235s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[75.237s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces
+[75.238s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/__init__.py
+[75.239s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/_pupper_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[75.242s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/_pupper_interfaces_s.ep.rosidl_typesupport_c.c
+[75.244s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/_pupper_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[75.247s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/libpupper_interfaces__rosidl_generator_py.so
+[75.249s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[75.251s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv
+[75.252s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/__init__.py
+[75.253s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_go_pupper.py
+[75.255s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_stop_music_s.c
+[75.256s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_stop_music.py
+[75.257s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_touch_pupper_s.c
+[75.259s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_camera_pupper_s.c
+[75.260s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_state_manager_command.py
+[75.262s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_touch_pupper.py
+[75.263s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_go_pupper_s.c
+[75.265s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_state_manager_command_s.c
+[75.266s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_play_music_s.c
+[75.268s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_play_music.py
+[75.269s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_camera_pupper.py
+[75.271s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[75.273s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[75.275s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg
+[75.276s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/__init__.py
+[75.277s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_command.py
+[75.279s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_touch_event_s.c
+[75.281s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_distraction_event.py
+[75.282s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_touch_event.py
+[75.283s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_distraction_event_s.c
+[75.284s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_command_s.c
+[75.578s] Listing '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces'...
+[75.580s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/__init__.py'...
+[75.581s] Listing '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg'...
+[75.584s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/__init__.py'...
+[75.585s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_command.py'...
+[75.587s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_distraction_event.py'...
+[75.588s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/msg/_touch_event.py'...
+[75.590s] Listing '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv'...
+[75.591s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/__init__.py'...
+[75.592s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_camera_pupper.py'...
+[75.593s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_go_pupper.py'...
+[75.594s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_play_music.py'...
+[75.595s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_state_manager_command.py'...
+[75.595s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_stop_music.py'...
+[75.596s] Compiling '/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/srv/_touch_pupper.py'...
+[75.608s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[75.612s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""
+[75.613s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[75.618s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""
+[75.619s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[75.623s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/local/lib/python3.10/dist-packages/pupper_interfaces/pupper_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""
+[75.624s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_generator_py.so
+[75.627s] -- Set runtime path of "/home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/lib/libpupper_interfaces__rosidl_generator_py.so" to ""
+[75.628s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/msg/Command.idl
+[75.630s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/msg/DistractionEvent.idl
+[75.631s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/msg/TouchEvent.idl
+[75.633s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/GoPupper.idl
+[75.635s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/TouchPupper.idl
+[75.636s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/CameraPupper.idl
+[75.638s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/PlayMusic.idl
+[75.639s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StopMusic.idl
+[75.641s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StateManagerCommand.idl
+[75.643s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/msg/Command.msg
+[75.644s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/msg/DistractionEvent.msg
+[75.645s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/msg/TouchEvent.msg
+[75.647s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/GoPupper.srv
+[75.648s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/GoPupper_Request.msg
+[75.650s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/GoPupper_Response.msg
+[75.651s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/TouchPupper.srv
+[75.653s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/TouchPupper_Request.msg
+[75.654s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/TouchPupper_Response.msg
+[75.656s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/CameraPupper.srv
+[75.657s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/CameraPupper_Request.msg
+[75.659s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/CameraPupper_Response.msg
+[75.661s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/PlayMusic.srv
+[75.662s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/PlayMusic_Request.msg
+[75.664s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/PlayMusic_Response.msg
+[75.665s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StopMusic.srv
+[75.667s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StopMusic_Request.msg
+[75.668s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StopMusic_Response.msg
+[75.670s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StateManagerCommand.srv
+[75.671s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StateManagerCommand_Request.msg
+[75.673s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/srv/StateManagerCommand_Response.msg
+[75.675s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/ament_index/resource_index/package_run_dependencies/pupper_interfaces
+[75.677s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/ament_index/resource_index/parent_prefix_path/pupper_interfaces
+[75.679s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/ament_prefix_path.sh
+[75.680s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/ament_prefix_path.dsv
+[75.683s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/path.sh
+[75.684s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/environment/path.dsv
+[75.686s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/local_setup.bash
+[75.687s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/local_setup.sh
+[75.689s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/local_setup.zsh
+[75.690s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/local_setup.dsv
+[75.692s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/package.dsv
+[75.694s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/ament_index/resource_index/packages/pupper_interfaces
+[75.696s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_generator_cExport.cmake
+[75.698s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_generator_cExport-noconfig.cmake
+[75.700s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[75.702s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[75.704s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[75.706s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[75.708s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_cExport.cmake
+[75.710s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[75.712s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_generator_cppExport.cmake
+[75.714s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[75.716s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[75.718s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[75.720s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[75.722s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_cppExport.cmake
+[75.724s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[75.726s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_generator_pyExport.cmake
+[75.728s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/export_pupper_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[75.729s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/rosidl_cmake-extras.cmake
+[75.731s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[75.733s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[75.735s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[75.737s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[75.738s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[75.740s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[75.742s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfacesConfig.cmake
+[75.743s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/cmake/pupper_interfacesConfig-version.cmake
+[75.745s] -- Installing: /home/ubuntu/ros2_ws/src/pupper_interfaces/install/pupper_interfaces/share/pupper_interfaces/package.xml
+[75.754s] Invoked command in '/home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/ros2_ws/install/speaker_manager:/home/ubuntu/ros2_ws/install/py_srvcli:/home/ubuntu/ros2_ws/install/main_manager:/home/ubuntu/ros2_ws/install/display_manager:/home/ubuntu/ros2_ws/install/pupper_behaviors:/home/ubuntu/ros2_ws/install/position_manager:/home/ubuntu/ros2_ws/install/mini_pupper_music:/home/ubuntu/ros2_ws/install/mini_pupper_dance:/home/ubuntu/ros2_ws/install/mini_pupper_driver:/home/ubuntu/ros2_ws/install/input_detection:/home/ubuntu/ros2_ws/install/camera_basics:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/ros2_ws/src/pupper_interfaces/build/pupper_interfaces

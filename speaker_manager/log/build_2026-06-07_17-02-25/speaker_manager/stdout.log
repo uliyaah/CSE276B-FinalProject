@@ -1,0 +1,50 @@
+running egg_info
+creating build/speaker_manager/speaker_manager.egg-info
+writing build/speaker_manager/speaker_manager.egg-info/PKG-INFO
+writing dependency_links to build/speaker_manager/speaker_manager.egg-info/dependency_links.txt
+writing entry points to build/speaker_manager/speaker_manager.egg-info/entry_points.txt
+writing requirements to build/speaker_manager/speaker_manager.egg-info/requires.txt
+writing top-level names to build/speaker_manager/speaker_manager.egg-info/top_level.txt
+writing manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+reading manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+writing manifest file 'build/speaker_manager/speaker_manager.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build
+creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib
+creating /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+copying speaker_manager/__init__.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+copying speaker_manager/music_player.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+copying speaker_manager/music_server.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+copying speaker_manager/client_speaker.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+copying speaker_manager/mock_speaker_publisher.py -> /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager
+running install
+running install_lib
+creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/__init__.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/music_player.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/music_server.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/client_speaker.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+copying /home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/build/lib/speaker_manager/mock_speaker_publisher.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager
+byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/music_player.py to music_player.cpython-310.pyc
+byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/music_server.py to music_server.cpython-310.pyc
+byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/client_speaker.py to client_speaker.cpython-310.pyc
+byte-compiling /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager/mock_speaker_publisher.py to mock_speaker_publisher.cpython-310.pyc
+running install_data
+copying package.xml -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager
+creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+copying resource/growl.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+copying resource/robot1.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+copying resource/bark.wav -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+copying resource/robot1.mp3 -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+copying resource/speaker_manager -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/resource
+creating /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager/audio
+copying launch/music.launch.py -> /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/share/speaker_manager
+running install_egg_info
+Copying build/speaker_manager/speaker_manager.egg-info to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/python3.10/site-packages/speaker_manager-0.0.0-py3.10.egg-info
+running install_scripts
+Installing client script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+Installing music_server script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+Installing service script to /home/ubuntu/ros2_ws/src/speaker_manager/install/speaker_manager/lib/speaker_manager
+writing list of installed files to '/home/ubuntu/ros2_ws/src/speaker_manager/build/speaker_manager/install.log'

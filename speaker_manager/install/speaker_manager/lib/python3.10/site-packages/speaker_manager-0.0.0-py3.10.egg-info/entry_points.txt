@@ -1,0 +1,5 @@
+[console_scripts]
+client = speaker_manager.client_speaker:main
+music_server = speaker_manager.music_server:main
+service = speaker_manager.mock_speaker_publisher:main
+

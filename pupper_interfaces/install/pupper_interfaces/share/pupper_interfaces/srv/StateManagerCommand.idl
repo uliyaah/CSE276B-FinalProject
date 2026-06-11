@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from pupper_interfaces/srv/StateManagerCommand.srv
+// generated code does not contain a copyright notice
+
+#include "pupper_interfaces/msg/Command.idl"
+
+module pupper_interfaces {
+  module srv {
+    struct StateManagerCommand_Request {
+      pupper_interfaces::msg::Command command;
+    };
+    struct StateManagerCommand_Response {
+      boolean success;
+    };
+  };
+};

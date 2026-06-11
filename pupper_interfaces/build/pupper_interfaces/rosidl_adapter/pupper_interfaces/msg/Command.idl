@@ -1,0 +1,12 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from pupper_interfaces/msg/Command.msg
+// generated code does not contain a copyright notice
+
+
+module pupper_interfaces {
+  module msg {
+    struct Command {
+      string command;
+    };
+  };
+};

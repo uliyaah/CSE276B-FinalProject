@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from pupper_interfaces/srv/GoPupper.srv
+// generated code does not contain a copyright notice
+
+
+module pupper_interfaces {
+  module srv {
+    struct GoPupper_Request {
+      string command;
+    };
+    struct GoPupper_Response {
+      boolean executed;
+    };
+  };
+};

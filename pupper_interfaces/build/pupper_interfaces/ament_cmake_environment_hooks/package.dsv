@@ -1,0 +1,4 @@
+source;share/pupper_interfaces/local_setup.bash
+source;share/pupper_interfaces/local_setup.dsv
+source;share/pupper_interfaces/local_setup.sh
+source;share/pupper_interfaces/local_setup.zsh
