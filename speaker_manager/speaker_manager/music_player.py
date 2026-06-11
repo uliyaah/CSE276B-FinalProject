@@ -20,6 +20,9 @@
 #
 # Purpose: Music Player for handling audio playback
 #
+#
+# Author: Angie Nguyen <atn046@ucsd.edu>, Prof. Riek <lriek@ucsd.edu>
+#
 # Acknowledgements: Used MangDang's ROS git repo as the base, with some modifications to fit our project needs
 #  https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html
 #  https://github.com/mangdangroboticsclub/mini_pupper_ros/tree/ros2-dev/mini_pupper_music 

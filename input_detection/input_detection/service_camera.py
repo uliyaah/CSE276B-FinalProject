@@ -7,6 +7,8 @@
 # Usage: First launch the service (see lab/file). Then you can run the client like this:
 #        ros2 run input_detection service_camera
 #
+# Author: Angie Nguyen <atn046@ucsd.edu>, Prof. Riek <lriek@ucsd.edu>
+#
 # Acknowledgements: Used some code from ROS 2 Tutorials and MangDang's ROS git repo 
 #  https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html
 #
